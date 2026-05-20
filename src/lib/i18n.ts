@@ -71,7 +71,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     footer: {
       madeWith: "Hecho con amor para la comunidad aldeana ❤️",
-      credits: "Archivo Digital por ingruno.eth",
+      credits: "Archivo Digital por imrulo.eth",
       rights:
         "Todos los derechos de las obras pertenecen a sus creadores.",
       disclaimer:
@@ -115,7 +115,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     footer: {
       madeWith: "Made with love for the aldeana community ❤️",
-      credits: "Digital Archive by ingruno.eth",
+      credits: "Digital Archive by imrulo.eth",
       rights: "All work rights belong to their creators.",
       disclaimer:
         "Unofficial fan site dedicated to the public legacy of Los Aldeanos. We do not represent the artists.",

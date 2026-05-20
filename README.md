@@ -98,7 +98,7 @@ El proyecto está preparado para:
 
 ## Créditos
 
-- **Archivo Digital por [ingruno.eth](https://github.com/imrulo)**
+- **Archivo Digital por [imrulo.eth](https://github.com/imrulo)**
 - Hecho con amor para la comunidad aldeana ❤️
 - © Obras: sus creadores originales
 

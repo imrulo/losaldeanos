@@ -24,7 +24,7 @@ export function siteMetadata(locale: Locale): Metadata {
       "archivo digital",
       "legado",
     ],
-    authors: [{ name: "ingruno.eth", url: "https://github.com/imrulo" }],
+    authors: [{ name: "imrulo.eth", url: "https://github.com/imrulo" }],
     openGraph: {
       type: "website",
       locale: isEs ? "es_ES" : "en_US",
