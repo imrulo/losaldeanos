@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "censurados",
+    "title": "Censurados",
+    "artist": "los-aldeanos",
+    "year": 2008,
+    "coverColor": "#1a0a0a",
+    "description": "Obra fundacional del dúo: crítica social, metáforas afiladas y el sello del rap conciencia cubano.",
+    "tracks": ["Intro", "Censurados", "Mi Generación", "Rap es Guerra", "Sin Censura"],
+    "spotify": "https://open.spotify.com/search/Censurados%20Los%20Aldeanos",
+    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+Censurados",
+    "apple": "https://music.apple.com/search?term=Los%20Aldeanos%20Censurados"
+  },
+  {
+    "slug": "poesia-esposada",
+    "title": "Poesía Esposada",
+    "artist": "los-aldeanos",
+    "year": 2010,
+    "coverColor": "#2a1515",
+    "description": "Poética y denuncia entrelazadas; un puente entre el barrio y la reflexión filosófica.",
+    "tracks": ["Poesía Esposada", "La Fila", "Underground", "Libertad"],
+    "spotify": "https://open.spotify.com/search/Poesia%20Esposada%20Los%20Aldeanos",
+    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+Poesia+Esposada"
+  },
+  {
+    "slug": "el-atropello",
+    "title": "El Atropello",
+    "artist": "los-aldeanos",
+    "year": 2012,
+    "coverColor": "#0f1a18",
+    "description": "Producción que consolida su impacto y mensajes de pensamiento revolucionario — del pensamiento, no partidista.",
+    "tracks": ["El Atropello", "Conciencia", "La Aldea", "Revolución del Pensamiento"],
+    "spotify": "https://open.spotify.com/search/El%20Atropello%20Los%20Aldeanos",
+    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+El+Atropello"
+  },
+  {
+    "slug": "al2-solo",
+    "title": "Proyectos Al2 El Aldeano",
+    "artist": "al2",
+    "year": 2016,
+    "coverColor": "#1f1208",
+    "description": "Trabajo en solitario de Al2: continuidad del legado lírico y exploración de nuevos sonidos.",
+    "tracks": ["Selección de temas en canal oficial"],
+    "youtube": "https://www.youtube.com/c/al2elaldeano"
+  },
+  {
+    "slug": "el-b-solo",
+    "title": "Proyectos El B",
+    "artist": "el-b",
+    "year": 2016,
+    "coverColor": "#12141f",
+    "description": "Trayectoria individual de El B tras la separación del dúo.",
+    "tracks": ["Selección de temas públicos"],
+    "youtube": "https://www.youtube.com/results?search_query=El+B+Los+Aldeanos"
+  }
+]

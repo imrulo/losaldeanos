@@ -1,0 +1,39 @@
+[
+  {
+    "year": 2003,
+    "title": "Primer show en 5 Palmas",
+    "description": "Los Aldeanos debutan en vivo en el barrio 5 Palmas, marcando el inicio de una trayectoria que transformaría el rap cubano underground.",
+    "highlight": true
+  },
+  {
+    "year": 2005,
+    "title": "Formación del dúo",
+    "description": "Aldo Roberto Rodríguez Baquero (Al2) y Bian Oscar Rodríguez Galá (El B) consolidan el dúo Los Aldeanos con un estilo crudo y reflexivo."
+  },
+  {
+    "year": 2008,
+    "title": "Censurados",
+    "description": "Álbum que cristaliza su voz crítica y poética, referencia obligada del rap conciencia en Cuba."
+  },
+  {
+    "year": 2010,
+    "title": "Poesía Esposada",
+    "description": "Obra que profundiza en la metáfora, el amor y la denuncia social con una madurez lírica notable."
+  },
+  {
+    "year": 2012,
+    "title": "El Atropello",
+    "description": "Producción que amplía su alcance y refuerza mensajes de libertad, pensamiento independiente y empoderamiento juvenil."
+  },
+  {
+    "year": 2014,
+    "title": "Separación del dúo",
+    "description": "Los Aldeanos anuncian su separación. Cada artista continúa su camino en solitario, expandiendo el legado del movimiento."
+  },
+  {
+    "year": 2015,
+    "title": "Carreras en solitario",
+    "description": "Al2 y El B desarrollan proyectos individuales, manteniendo la influencia del dúo en nuevas generaciones de raperos cubanos.",
+    "highlight": true
+  }
+]

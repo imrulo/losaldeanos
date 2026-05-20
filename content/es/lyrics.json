@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "rap-es-guerra",
+    "title": "Rap es Guerra",
+    "album": "Censurados",
+    "year": 2008,
+    "excerpt": "El rap es guerra, el rap es cultura, el rap es la voz de mi generación...",
+    "themes": ["conciencia", "juventud", "crítica social"],
+    "listenUrl": "https://www.youtube.com/results?search_query=Los+Aldeanos+Rap+es+Guerra"
+  },
+  {
+    "slug": "mi-generacion",
+    "title": "Mi Generación",
+    "album": "Censurados",
+    "year": 2008,
+    "excerpt": "Somos la generación que no se calla, que piensa con la cabeza alta...",
+    "themes": ["empoderamiento", "juventud"],
+    "listenUrl": "https://www.youtube.com/results?search_query=Los+Aldeanos+Mi+Generacion"
+  },
+  {
+    "slug": "libertad",
+    "title": "Libertad",
+    "album": "Poesía Esposada",
+    "year": 2010,
+    "excerpt": "Libertad de pensar, libertad de crear, libertad de ser quien soy...",
+    "themes": ["libertad", "pensamiento independiente"],
+    "listenUrl": "https://www.youtube.com/results?search_query=Los+Aldeanos+Libertad"
+  },
+  {
+    "slug": "revolucion-pensamiento",
+    "title": "Revolución del Pensamiento",
+    "album": "El Atropello",
+    "year": 2012,
+    "excerpt": "No es revolución de armas, es revolución de ideas, de conciencia despierta...",
+    "themes": ["pensamiento crítico", "conciencia"],
+    "listenUrl": "https://www.youtube.com/results?search_query=Los+Aldeanos+revolucion+del+pensamiento"
+  }
+]
