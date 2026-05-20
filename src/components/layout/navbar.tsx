@@ -10,6 +10,7 @@ import type { Locale } from "@/types/content";
 import { cn } from "@/lib/utils";
 import { GlobalSearch } from "@/components/search/global-search";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
+import { ThemeToggle } from "@/components/museum/theme-toggle";
 
 const navItems = [
   "home",
@@ -71,6 +72,7 @@ export function Navbar({ locale }: { locale: Locale }) {
 
         <div className="flex items-center gap-2">
           <GlobalSearch locale={locale} />
+          <ThemeToggle />
           <LocaleSwitcher locale={locale} />
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <Link href={`${base}/comunidad`}>{dict.nav.enterAldea}</Link>

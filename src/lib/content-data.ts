@@ -6,11 +6,17 @@ import lyricsEs from "../../content/es/lyrics.json";
 import lyricsEn from "../../content/en/lyrics.json";
 import biosEs from "../../content/es/bios.json";
 import biosEn from "../../content/en/bios.json";
+import quotesEs from "../../content/es/quotes.json";
+import quotesEn from "../../content/en/quotes.json";
+import galleryEs from "../../content/es/gallery.json";
+import galleryEn from "../../content/en/gallery.json";
 import type {
   Album,
   BioSection,
+  GalleryImage,
   Locale,
   LyricEntry,
+  QuoteCard,
   TimelineEvent,
 } from "@/types/content";
 
@@ -20,12 +26,16 @@ const data = {
     albums: albumsEs as Album[],
     lyrics: lyricsEs as LyricEntry[],
     bios: biosEs as BioSection[],
+    quotes: quotesEs as QuoteCard[],
+    gallery: galleryEs as GalleryImage[],
   },
   en: {
     timeline: timelineEn as TimelineEvent[],
     albums: albumsEn as Album[],
     lyrics: lyricsEn as LyricEntry[],
     bios: biosEn as BioSection[],
+    quotes: quotesEn as QuoteCard[],
+    gallery: galleryEn as GalleryImage[],
   },
 } as const;
 
@@ -39,7 +49,7 @@ export function getAlbums(locale: Locale): Album[] {
 
 export function getAlbumsByArtist(
   locale: Locale,
-  artist: import("@/types/content").ArtistFilter | "all",
+  artist: "los-aldeanos" | "al2" | "el-b" | "all",
 ): Album[] {
   const albums = getAlbums(locale);
   if (artist === "all") return albums;
@@ -59,4 +69,12 @@ export function getLyricBySlug(
 
 export function getBios(locale: Locale): BioSection[] {
   return data[locale].bios;
+}
+
+export function getQuotes(locale: Locale): QuoteCard[] {
+  return data[locale].quotes;
+}
+
+export function getGallery(locale: Locale): GalleryImage[] {
+  return data[locale].gallery;
 }

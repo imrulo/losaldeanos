@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { MuseumShell } from "@/components/providers/museum-shell";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
@@ -35,14 +36,16 @@ export default async function LocaleLayout({
 
   return (
     <ThemeProvider>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <DisclaimerBanner locale={locale} />
-      <Navbar locale={locale} />
-      <main className="pt-16 flex-1">{children}</main>
-      <Footer locale={locale} />
+      <MuseumShell>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <DisclaimerBanner locale={locale} />
+        <Navbar locale={locale} />
+        <main className="pt-16 flex-1">{children}</main>
+        <Footer locale={locale} />
+      </MuseumShell>
     </ThemeProvider>
   );
 }

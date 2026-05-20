@@ -6,13 +6,25 @@ Sitio fan **no oficial** dedicado al legado público de **Los Aldeanos** (Al2 El
 
 ## Stack (2026)
 
-- **Next.js 16** (App Router, React 19, Turbopack)
+- **Next.js 16** (App Router, React 19, Turbopack, PPR `cacheComponents`)
 - **TypeScript** (strict)
 - **Tailwind CSS 4** + **shadcn/ui** + **Radix UI**
-- **Framer Motion**
+- **Framer Motion** + **GSAP-ready** + **Lenis** smooth scroll
+- **React Three Fiber** — partículas y vinilo 3D en el hero
+- **Embla Carousel** — carruseles de releases, videos y testimonios
 - Contenido estático: **JSON + MDX** (`/content`)
-- **Vercel** ready (`vercel.json`, PPR via `cacheComponents`)
-- SEO: Metadata API, sitemap, robots, JSON-LD
+- **Vercel** ready · SEO: Metadata API, sitemap, robots, JSON-LD
+
+## Experiencia Museo Virtual
+
+| Sección | Interactividad |
+|---------|----------------|
+| **Hero** | Partículas 3D, glitch en hover, botón La Aldea con ripple + sonido sutil |
+| **Timeline** | Drag horizontal, scrubber, filtros Juntos/Al2/El B, panel detalle |
+| **Discografía** | Grid + búsqueda, modal con vinilo girando y preview YouTube |
+| **Multimedia** | Carrusel video hover-autoplay, galería masonry + lightbox |
+| **Legado** | Mapa de nodos, flip cards de frases, testimonios carrusel |
+| **UX global** | Loading screen, barra de lectura, back-to-top, dark/light toggle |
 
 ## Inicio rápido
 

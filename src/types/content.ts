@@ -1,12 +1,16 @@
 export type Locale = "es" | "en";
 
-export type ArtistFilter = "los-aldeanos" | "al2" | "el-b";
+export type ArtistFilter = "los-aldeanos" | "al2" | "el-b" | "all";
 
 export interface TimelineEvent {
   year: number;
   title: string;
   description: string;
+  longDescription?: string;
   highlight?: boolean;
+  artist?: ArtistFilter;
+  coverColor?: string;
+  youtubeId?: string;
 }
 
 export interface Album {
@@ -20,6 +24,7 @@ export interface Album {
   spotify?: string;
   youtube?: string;
   apple?: string;
+  previewYoutubeId?: string;
 }
 
 export interface LyricEntry {
@@ -30,6 +35,7 @@ export interface LyricEntry {
   excerpt: string;
   themes: string[];
   listenUrl?: string;
+  context?: string;
 }
 
 export interface BioSection {
@@ -38,6 +44,20 @@ export interface BioSection {
   born?: string;
   summary: string;
   highlights: string[];
+}
+
+export interface QuoteCard {
+  id: string;
+  lyric: string;
+  context: string;
+  theme: string;
+}
+
+export interface GalleryImage {
+  id: string;
+  caption: string;
+  color: string;
+  aspect?: "square" | "tall" | "wide";
 }
 
 export interface SearchDocument {

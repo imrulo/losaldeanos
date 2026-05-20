@@ -42,8 +42,36 @@ Edita `content/es/albums.json` y `content/en/albums.json`:
 {
   "year": 2011,
   "title": "Título del hito",
-  "description": "Descripción.",
-  "highlight": false
+  "description": "Descripción corta.",
+  "longDescription": "Texto expandido para el panel interactivo.",
+  "highlight": false,
+  "artist": "los-aldeanos",
+  "coverColor": "#1a0a0a",
+  "youtubeId": ""
+}
+```
+
+`artist`: `los-aldeanos` | `al2` | `el-b` | `all`
+
+## Frases flip (quotes.json)
+
+```json
+{
+  "id": "mi-frase",
+  "lyric": "Texto de la frase...",
+  "context": "Contexto didáctico al voltear la tarjeta.",
+  "theme": "libertad"
+}
+```
+
+## Galería (gallery.json)
+
+```json
+{
+  "id": "7",
+  "caption": "Pie de foto",
+  "color": "#1a0508",
+  "aspect": "tall"
 }
 ```
 

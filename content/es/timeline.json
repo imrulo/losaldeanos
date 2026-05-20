@@ -2,38 +2,77 @@
   {
     "year": 2003,
     "title": "Primer show en 5 Palmas",
-    "description": "Los Aldeanos debutan en vivo en el barrio 5 Palmas, marcando el inicio de una trayectoria que transformaría el rap cubano underground.",
-    "highlight": true
+    "description": "Debut en vivo en el barrio que marcó el inicio del rap conciencia cubano.",
+    "longDescription": "Los Aldeanos debutan en 5 Palmas con un show crudo y directo. Desde ese barrio nace la semilla de un movimiento que transformaría el underground cubano.",
+    "highlight": true,
+    "artist": "los-aldeanos",
+    "coverColor": "#1a0508",
+    "youtubeId": ""
   },
   {
     "year": 2005,
     "title": "Formación del dúo",
-    "description": "Aldo Roberto Rodríguez Baquero (Al2) y Bian Oscar Rodríguez Galá (El B) consolidan el dúo Los Aldeanos con un estilo crudo y reflexivo."
+    "description": "Al2 y El B consolidan Los Aldeanos con estilo reflexivo y urbano.",
+    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) y Bian Oscar Rodríguez Galá (El B) unen fuerzas. Metáfora filosófica + flow de calle = sello Aldeano.",
+    "artist": "los-aldeanos",
+    "coverColor": "#2a1010"
   },
   {
     "year": 2008,
     "title": "Censurados",
-    "description": "Álbum que cristaliza su voz crítica y poética, referencia obligada del rap conciencia en Cuba."
+    "description": "Álbum fundacional del rap conciencia en Cuba.",
+    "longDescription": "Censurados cristaliza la voz crítica del dúo. Temas como generación, guerra del pensamiento y denuncia social se vuelven himnos underground.",
+    "highlight": true,
+    "artist": "los-aldeanos",
+    "coverColor": "#1a0a0a",
+    "youtubeId": ""
   },
   {
     "year": 2010,
     "title": "Poesía Esposada",
-    "description": "Obra que profundiza en la metáfora, el amor y la denuncia social con una madurez lírica notable."
+    "description": "Poética y denuncia con madurez lírica notable.",
+    "longDescription": "Un puente entre el amor, la metáfora y la crítica social. Libertad y reflexión como ejes centrales.",
+    "artist": "los-aldeanos",
+    "coverColor": "#2a1515"
   },
   {
     "year": 2012,
     "title": "El Atropello",
-    "description": "Producción que amplía su alcance y refuerza mensajes de libertad, pensamiento independiente y empoderamiento juvenil."
+    "description": "Mensajes de libertad y pensamiento independiente.",
+    "longDescription": "Producción que amplía el alcance del dúo. Revolución del pensamiento — no partidista, sino humanista y crítico.",
+    "artist": "los-aldeanos",
+    "coverColor": "#0f1a18"
   },
   {
     "year": 2014,
     "title": "Separación del dúo",
-    "description": "Los Aldeanos anuncian su separación. Cada artista continúa su camino en solitario, expandiendo el legado del movimiento."
+    "description": "Fin de la era conjunta; inicio de dos caminos solistas.",
+    "longDescription": "Los Aldeanos anuncian su separación. El legado permanece; cada MC expande el movimiento por su cuenta.",
+    "artist": "los-aldeanos",
+    "coverColor": "#141414"
   },
   {
     "year": 2015,
     "title": "Carreras en solitario",
-    "description": "Al2 y El B desarrollan proyectos individuales, manteniendo la influencia del dúo en nuevas generaciones de raperos cubanos.",
-    "highlight": true
+    "description": "Al2 y El B continúan el legado en proyectos individuales.",
+    "longDescription": "Al2 explora nuevas producciones en su canal oficial. El B desarrolla su voz narrativa. La Aldea sigue viva en la diáspora.",
+    "highlight": true,
+    "artist": "all",
+    "coverColor": "#1f1208",
+    "youtubeId": ""
+  },
+  {
+    "year": 2016,
+    "title": "Al2 — era solista",
+    "description": "Canal oficial y nuevas obras de Al2 El Aldeano.",
+    "artist": "al2",
+    "coverColor": "#1f1208"
+  },
+  {
+    "year": 2017,
+    "title": "El B — proyectos propios",
+    "description": "Trayectoria individual de El B tras la separación.",
+    "artist": "el-b",
+    "coverColor": "#12141f"
   }
 ]

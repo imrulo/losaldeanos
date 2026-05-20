@@ -2,38 +2,74 @@
   {
     "year": 2003,
     "title": "First show in 5 Palmas",
-    "description": "Los Aldeanos debut live in the 5 Palmas neighborhood, beginning a journey that would transform Cuban underground rap.",
-    "highlight": true
+    "description": "Live debut in the neighborhood that sparked Cuban conscious rap.",
+    "longDescription": "Los Aldeanos debut in 5 Palmas with a raw, direct show. From that block came a movement that transformed Cuban underground rap.",
+    "highlight": true,
+    "artist": "los-aldeanos",
+    "coverColor": "#1a0508"
   },
   {
     "year": 2005,
     "title": "Duo formation",
-    "description": "Aldo Roberto Rodríguez Baquero (Al2) and Bian Oscar Rodríguez Galá (El B) solidify Los Aldeanos with a raw, reflective style."
+    "description": "Al2 and El B solidify Los Aldeanos with reflective urban style.",
+    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) and Bian Oscar Rodríguez Galá (El B) join forces. Philosophical metaphor + street flow = the Aldeano seal.",
+    "artist": "los-aldeanos",
+    "coverColor": "#2a1010"
   },
   {
     "year": 2008,
     "title": "Censurados",
-    "description": "An album that crystallizes their critical and poetic voice—a cornerstone of conscious rap in Cuba."
+    "description": "Foundational album of Cuban conscious rap.",
+    "longDescription": "Censurados crystallizes the duo's critical voice. Generation, war of thought, and social critique become underground anthems.",
+    "highlight": true,
+    "artist": "los-aldeanos",
+    "coverColor": "#1a0a0a"
   },
   {
     "year": 2010,
     "title": "Poesía Esposada",
-    "description": "A work deepening metaphor, love, and social critique with remarkable lyrical maturity."
+    "description": "Poetry and protest with remarkable lyrical maturity.",
+    "longDescription": "A bridge between love, metaphor, and social critique. Freedom and reflection as central axes.",
+    "artist": "los-aldeanos",
+    "coverColor": "#2a1515"
   },
   {
     "year": 2012,
     "title": "El Atropello",
-    "description": "A release that broadens their reach and reinforces messages of freedom, independent thought, and youth empowerment."
+    "description": "Messages of freedom and independent thought.",
+    "longDescription": "A release that broadens the duo's reach. Revolution of thought — not partisan, but humanist and critical.",
+    "artist": "los-aldeanos",
+    "coverColor": "#0f1a18"
   },
   {
     "year": 2014,
     "title": "Duo separation",
-    "description": "Los Aldeanos announce their split. Each artist continues solo, expanding the movement's legacy."
+    "description": "End of the joint era; start of two solo paths.",
+    "longDescription": "Los Aldeanos announce their split. The legacy remains; each MC expands the movement on their own.",
+    "artist": "los-aldeanos",
+    "coverColor": "#141414"
   },
   {
     "year": 2015,
     "title": "Solo careers",
-    "description": "Al2 and El B pursue individual projects, keeping the duo's influence alive for new generations of Cuban rappers.",
-    "highlight": true
+    "description": "Al2 and El B continue the legacy in individual projects.",
+    "longDescription": "Al2 explores new productions on his official channel. El B develops his narrative voice. La Aldea lives on in the diaspora.",
+    "highlight": true,
+    "artist": "all",
+    "coverColor": "#1f1208"
+  },
+  {
+    "year": 2016,
+    "title": "Al2 — solo era",
+    "description": "Official channel and new work from Al2 El Aldeano.",
+    "artist": "al2",
+    "coverColor": "#1f1208"
+  },
+  {
+    "year": 2017,
+    "title": "El B — own projects",
+    "description": "El B's individual path after the split.",
+    "artist": "el-b",
+    "coverColor": "#12141f"
   }
 ]

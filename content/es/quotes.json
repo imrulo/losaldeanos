@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rap-guerra",
+    "lyric": "El rap es guerra, el rap es cultura, el rap es la voz de mi generación.",
+    "context": "Manifiesto de una generación que eligió el micrófono como arma de conciencia.",
+    "theme": "conciencia"
+  },
+  {
+    "id": "libertad",
+    "lyric": "Libertad de pensar, libertad de crear, libertad de ser quien soy.",
+    "context": "El pensamiento independiente como acto revolucionario cotidiano.",
+    "theme": "libertad"
+  },
+  {
+    "id": "revolucion",
+    "lyric": "No es revolución de armas, es revolución de ideas.",
+    "context": "Pensamiento crítico sin política tóxica — solo verdad y reflexión.",
+    "theme": "pensamiento"
+  },
+  {
+    "id": "juventud",
+    "lyric": "Somos la generación que no se calla.",
+    "context": "Empoderamiento juvenil desde el barrio hasta la diáspora.",
+    "theme": "juventud"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  { "id": "1", "caption": "5 Palmas — origen", "color": "#1a0508", "aspect": "tall" },
+  { "id": "2", "caption": "Underground elevado", "color": "#2a1515", "aspect": "square" },
+  { "id": "3", "caption": "Rap conciencia", "color": "#0f1a18", "aspect": "wide" },
+  { "id": "4", "caption": "La Aldea", "color": "#1f1208", "aspect": "square" },
+  { "id": "5", "caption": "Micrófono y verdad", "color": "#12141f", "aspect": "tall" },
+  { "id": "6", "caption": "Legado vivo", "color": "#2a1010", "aspect": "square" }
+]

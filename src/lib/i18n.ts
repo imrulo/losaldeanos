@@ -70,8 +70,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       scroll: "Descubre el legado",
     },
     footer: {
-      madeWith: "Hecho con amor para la comunidad aldeana ❤️",
-      credits: "Archivo Digital por imrulo.eth",
+      madeWith: "Hecho con amor para la comunidad aldeana ❤️ por imrulo.eth",
+      credits: "Museo Virtual · Archivo Digital",
       rights:
         "Todos los derechos de las obras pertenecen a sus creadores.",
       disclaimer:
@@ -114,8 +114,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       scroll: "Discover the legacy",
     },
     footer: {
-      madeWith: "Made with love for the aldeana community ❤️",
-      credits: "Digital Archive by imrulo.eth",
+      madeWith: "Made with love for the aldeana community ❤️ by imrulo.eth",
+      credits: "Virtual Museum · Digital Archive",
       rights: "All work rights belong to their creators.",
       disclaimer:
         "Unofficial fan site dedicated to the public legacy of Los Aldeanos. We do not represent the artists.",
