@@ -186,3 +186,100 @@ html.lenis body {
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
+
+/* Vinyl disc hero */
+.vinyl-disc-hero {
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    #0d0d0d 0,
+    #0d0d0d 2px,
+    #1a1a1a 2px,
+    #1a1a1a 4px
+  );
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.8);
+  animation: spin-vinyl 22s linear infinite;
+}
+
+@keyframes spin-vinyl {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.particle-field {
+  background-image: radial-gradient(
+      1px 1px at 20% 30%,
+      rgba(200, 16, 46, 0.35),
+      transparent
+    ),
+    radial-gradient(1px 1px at 60% 70%, rgba(244, 162, 97, 0.25), transparent),
+    radial-gradient(1px 1px at 80% 20%, rgba(200, 16, 46, 0.2), transparent),
+    radial-gradient(1px 1px at 40% 80%, rgba(255, 255, 255, 0.08), transparent);
+  background-size: 200% 200%;
+  animation: drift-particles 24s ease-in-out infinite alternate;
+}
+
+@keyframes drift-particles {
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+
+.cta-pulse {
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes cta-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 30px color-mix(in srgb, var(--primary) 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 55px color-mix(in srgb, var(--primary) 55%, transparent);
+  }
+}
+
+.scratch-hover {
+  position: relative;
+}
+
+.scratch-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary),
+    var(--accent),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.scratch-hover:hover::after {
+  opacity: 1;
+}
+
+.perspective-\[1000px\] {
+  perspective: 1000px;
+}
+
+input[type="range"].timeline-scrubber::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: grab;
+  box-shadow: 0 0 12px rgba(200, 16, 46, 0.6);
+}

@@ -15,9 +15,21 @@ export function Footer({ locale }: { locale: Locale }) {
         </p>
 
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="flex items-center gap-2 text-sm">
-            <Heart className="h-4 w-4 text-primary" aria-hidden />
-            {dict.footer.madeWith}
+          <p className="flex flex-wrap items-center gap-2 text-sm">
+            <Heart className="h-4 w-4 text-primary shrink-0" aria-hidden />
+            <span>
+              {locale === "es"
+                ? "Hecho con amor para la comunidad aldeana ❤️ por "
+                : "Made with love for the aldeana community ❤️ by "}
+              <Link
+                href="https://github.com/imrulo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-semibold hover:underline"
+              >
+                imrulo.eth
+              </Link>
+            </span>
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <Link
@@ -26,7 +38,7 @@ export function Footer({ locale }: { locale: Locale }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:text-primary"
             >
-              github.com/imrulo
+              GitHub
             </Link>
             <span>
               {dict.footer.credits} · {year}

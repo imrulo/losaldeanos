@@ -10,78 +10,103 @@ import { getAlbums } from "@/lib/content-data";
 import { localePath } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
+import { TiltCard } from "@/components/museum/tilt-card";
+import { useMicroSound } from "@/hooks/use-micro-sound";
 
 export function ReleasesCarousel({ locale }: { locale: Locale }) {
   const albums = getAlbums(locale).filter((a) => a.artist === "los-aldeanos");
+  const slides = [...albums, ...albums];
   const base = localePath(locale);
+  const sound = useMicroSound();
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center", dragFree: true },
-    [Autoplay({ delay: 4000, stopOnInteraction: true })],
+    { loop: true, align: "center", dragFree: true, containScroll: false },
+    [Autoplay({ delay: 3500, stopOnInteraction: true, stopOnMouseEnter: true })],
   );
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+    sound.tick();
+  }, [emblaApi, sound]);
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+    sound.tick();
+  }, [emblaApi, sound]);
 
   return (
-    <section className="py-24 overflow-hidden bg-card/20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <section className="py-28 overflow-hidden relative">
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-0">
         <ScrollReveal>
-          <h2 className="text-3xl font-black sm:text-4xl">
+          <h2 className="text-4xl font-black sm:text-5xl">
             {locale === "es" ? "Lanzamientos destacados" : "Featured releases"}
           </h2>
+          <p className="mt-2 text-muted-foreground">
+            {locale === "es" ? "Pasa el cursor — inclina la portada." : "Hover to tilt the cover."}
+          </p>
         </ScrollReveal>
 
-        <div className="mt-10 relative" ref={emblaRef}>
-          <div className="flex gap-6 touch-pan-y">
-            {albums.map((album, i) => (
-              <motion.div
-                key={album.slug}
-                className="embla__slide min-w-0 flex-[0_0_75%] sm:flex-[0_0_45%] lg:flex-[0_0_32%]"
-                whileHover={{ scale: 1.03, zIndex: 10 }}
+        <div className="mt-12 overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-6 sm:gap-8 -ml-4">
+            {slides.map((album, i) => (
+              <div
+                key={`${album.slug}-${i}`}
+                className="min-w-0 flex-[0_0_78%] sm:flex-[0_0_48%] lg:flex-[0_0_36%] pl-4"
               >
-                <Link
-                  href={`${base}/discografia#${album.slug}`}
-                  className="group block relative rounded-xl overflow-hidden border border-border hover:border-primary/60 transition-colors"
-                >
-                  <div
-                    className="aspect-[4/5] relative"
-                    style={{ backgroundColor: album.coverColor }}
+                <TiltCard>
+                  <Link
+                    href={`${base}/discografia#${album.slug}`}
+                    onClick={() => sound.tick()}
+                    className="group block relative rounded-2xl overflow-hidden border-2 border-border hover:border-primary/80 transition-colors"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
-                      <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                        <Play className="h-8 w-8 ml-1" fill="currentColor" />
-                      </span>
-                    </div>
-                    <div className="absolute bottom-0 p-6 w-full">
-                      <span className="text-xs font-bold text-accent">
-                        {album.year}
-                      </span>
-                      <h3 className="text-xl font-black mt-1">{album.title}</h3>
-                      <p className="text-sm text-muted-foreground mt-2 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        {album.description}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+                    <motion.div
+                      className="aspect-[4/5] relative"
+                      style={{ backgroundColor: album.coverColor }}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    >
+                      <div className="absolute inset-0 bg-[repeating-radial-gradient(circle_at_50%_50%,transparent_0,transparent_3px,rgba(0,0,0,0.15)_3px,rgba(0,0,0,0.15)_6px)] opacity-60" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-primary/20 backdrop-blur-[2px]">
+                        <motion.span
+                          initial={false}
+                          whileHover={{ scale: 1.1 }}
+                          className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground glow-red shadow-2xl"
+                        >
+                          <Play className="h-10 w-10 ml-1" fill="currentColor" />
+                        </motion.span>
+                      </div>
+                      <div className="absolute bottom-0 p-6 sm:p-8 w-full">
+                        <span className="text-xs font-black uppercase tracking-widest text-accent">
+                          {album.year}
+                        </span>
+                        <h3 className="text-2xl sm:text-3xl font-black mt-2 group-hover:text-primary transition-colors">
+                          {album.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mt-3 line-clamp-2 opacity-80 group-hover:opacity-100">
+                          {album.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </Link>
+                </TiltCard>
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-6 flex justify-center gap-4">
+        <div className="mt-8 flex justify-center gap-4">
           <button
             type="button"
             onClick={scrollPrev}
-            className="rounded-full border border-border px-4 py-2 text-sm hover:border-primary"
+            className="h-12 w-12 rounded-full border-2 border-border font-bold hover:border-primary hover:glow-red transition-all"
           >
             ←
           </button>
           <button
             type="button"
             onClick={scrollNext}
-            className="rounded-full border border-border px-4 py-2 text-sm hover:border-primary"
+            className="h-12 w-12 rounded-full border-2 border-border font-bold hover:border-primary hover:glow-red transition-all"
           >
             →
           </button>

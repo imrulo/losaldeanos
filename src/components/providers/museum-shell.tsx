@@ -4,12 +4,14 @@ import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provi
 import { LoadingScreen } from "@/components/museum/loading-screen";
 import { ReadingProgress } from "@/components/museum/reading-progress";
 import { BackToTop } from "@/components/museum/back-to-top";
+import { FilmGrain } from "@/components/museum/film-grain";
 
 export function MuseumShell({ children }: { children: React.ReactNode }) {
   return (
     <SmoothScrollProvider>
       <LoadingScreen />
       <ReadingProgress />
+      <FilmGrain />
       {children}
       <BackToTop />
     </SmoothScrollProvider>

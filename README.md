@@ -24,7 +24,12 @@ Sitio fan **no oficial** dedicado al legado público de **Los Aldeanos** (Al2 El
 | **Discografía** | Grid + búsqueda, modal con vinilo girando y preview YouTube |
 | **Multimedia** | Carrusel video hover-autoplay, galería masonry + lightbox |
 | **Legado** | Mapa de nodos, flip cards de frases, testimonios carrusel |
-| **UX global** | Loading screen, barra de lectura, back-to-top, dark/light toggle |
+| **UX global** | Lenis smooth scroll, grain cinematográfico, loading con barra, progress de lectura, back-to-top, dark/light |
+| **Historia** | `/es/historia` — sala dedicada + timeline full + bios + frases |
+
+### Dependencias clave
+
+`framer-motion`, `lenis`, `embla-carousel-react`, `@react-three/fiber` (opcional en hero legacy), `fuse.js`, `next-themes`
 
 ## Inicio rápido
 
@@ -32,11 +37,13 @@ Sitio fan **no oficial** dedicado al legado público de **Los Aldeanos** (Al2 El
 git clone https://github.com/imrulo/losaldeanos.git
 cd losaldeanos
 pnpm install
-cp .env.example .env.local
+cp .env.example .env.local   # opcional: NEXT_PUBLIC_SITE_URL
 pnpm dev
 ```
 
 Abre [http://localhost:3000](http://localhost:3000) → redirige a `/es`.
+
+**Importante:** La experiencia completa (timeline drag, tilt, flip cards, lightbox) requiere JavaScript activo. Usa `pnpm build && pnpm start` para probar el build de producción.
 
 ## Scripts
 
