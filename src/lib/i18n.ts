@@ -21,7 +21,8 @@ type Dictionary = {
     search: string;
   };
   hero: {
-    quote: string;
+    title: string;
+    anthem: string;
     tagline: string;
     cta: string;
     scroll: string;
@@ -64,9 +65,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       search: "Buscar",
     },
     hero: {
-      quote: "Los Aldeanos — Archivo Digital del Legado",
-      tagline: "2003–2014 · El dúo que despertó una generación · Con orgullo cubano",
-      cta: "Recorrer la era del dúo",
+      title: "Los Aldeanos",
+      anthem: "El rap es guerra",
+      tagline: "Archivo Digital · Legado Vivo · Para la Comunidad",
+      cta: "Explorar el Legado",
       scroll: "Viaje en el tiempo",
     },
     footer: {
@@ -108,9 +110,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       search: "Search",
     },
     hero: {
-      quote: "Los Aldeanos — Digital Archive of the Legacy",
-      tagline: "2003–2014 · The duo that awakened a generation · Cuban pride",
-      cta: "Explore the duo era",
+      title: "Los Aldeanos",
+      anthem: "El rap es guerra",
+      tagline: "Digital Archive · Living Legacy · For the Community",
+      cta: "Explore the Legacy",
       scroll: "Journey through time",
     },
     footer: {

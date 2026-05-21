@@ -3,35 +3,8 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
-import { OFFICIAL_LINKS } from "@/lib/official-links";
+import { FEATURED_VIDEOS } from "@/lib/featured-videos";
 import type { Locale } from "@/types/content";
-
-const videos = [
-  {
-    id: "duo",
-    primary: true,
-    titleEs: "Los Aldeanos — Dúo (principal)",
-    titleEn: "Los Aldeanos — Duo (primary)",
-    embed: OFFICIAL_LINKS.youtubeDuoEmbed,
-    link: OFFICIAL_LINKS.youtubeDuo,
-  },
-  {
-    id: "al2",
-    primary: false,
-    titleEs: "Al2 — Apéndice",
-    titleEn: "Al2 — Appendix",
-    embed: "https://www.youtube.com/embed?listType=user_uploads&list=al2elaldeano",
-    link: OFFICIAL_LINKS.youtubeAl2,
-  },
-  {
-    id: "elb",
-    primary: false,
-    titleEs: "El B — Apéndice",
-    titleEn: "El B — Appendix",
-    embed: "https://www.youtube.com/embed?listType=search&list=El+B+Los+Aldeanos",
-    link: OFFICIAL_LINKS.youtubeElB,
-  },
-];
 
 export function VideoCarousel({ locale }: { locale: Locale }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
@@ -44,7 +17,7 @@ export function VideoCarousel({ locale }: { locale: Locale }) {
     <div>
       <div className="overflow-hidden rounded-xl" ref={emblaRef}>
         <div className="flex gap-4">
-          {videos.map((v) => (
+          {FEATURED_VIDEOS.map((v) => (
             <div
               key={v.id}
               className="min-w-0 flex-[0_0_100%] sm:flex-[0_0_85%]"
@@ -55,18 +28,19 @@ export function VideoCarousel({ locale }: { locale: Locale }) {
                 className={
                   v.primary
                     ? "aspect-video rounded-xl overflow-hidden border border-primary/40 glow-blue"
-                    : "aspect-video rounded-xl overflow-hidden border border-border/60 opacity-90"
+                    : "aspect-video rounded-xl overflow-hidden border border-border/60 opacity-85"
                 }
                 animate={{ scale: activeHover === v.id ? 1.01 : 1 }}
               >
                 <iframe
                   title={locale === "es" ? v.titleEs : v.titleEn}
                   src={
-                    activeHover === v.id ? `${v.embed}&autoplay=1&mute=1` : v.embed
+                    activeHover === v.id ? `${v.embed}&mute=1` : v.embed
                   }
                   className="h-full w-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                 />
               </motion.div>
               <a
@@ -90,6 +64,7 @@ export function VideoCarousel({ locale }: { locale: Locale }) {
           type="button"
           onClick={scrollPrev}
           className="rounded-full border border-border px-4 py-2 text-sm hover:border-primary hover:glow-blue"
+          aria-label={locale === "es" ? "Anterior" : "Previous"}
         >
           ←
         </button>
@@ -97,6 +72,7 @@ export function VideoCarousel({ locale }: { locale: Locale }) {
           type="button"
           onClick={scrollNext}
           className="rounded-full border border-border px-4 py-2 text-sm hover:border-primary hover:glow-blue"
+          aria-label={locale === "es" ? "Siguiente" : "Next"}
         >
           →
         </button>

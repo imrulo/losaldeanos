@@ -1,8 +1,6 @@
 import { PageHeader } from "@/components/shared/page-header";
-import { getMdxContent } from "@/lib/content";
-import { LegacyMap } from "@/components/home/legacy-map";
+import { RapEsGuerraSection } from "@/components/home/rap-es-guerra-section";
 import { FlipQuotes } from "@/components/home/flip-quotes";
-import { TestimonialsCarousel } from "@/components/home/testimonials-carousel";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
 import { isValidLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
@@ -16,48 +14,23 @@ export default async function LegadoPage({
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
   const l = locale as Locale;
-  const { content } = getMdxContent(l, "legado");
-
-  const sections = content
-    .split("\n## ")
-    .filter(Boolean)
-    .map((block) => {
-      const [title, ...rest] = block.replace(/^## /, "").split("\n");
-      return { title: title.trim(), body: rest.join("\n").trim() };
-    });
 
   return (
     <>
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <ScrollReveal>
           <PageHeader
-            title={l === "es" ? "Legado e Impacto" : "Legacy & Impact"}
+            title={l === "es" ? "Legado del dúo" : "Duo legacy"}
             subtitle={
               l === "es"
-                ? "Un museo interactivo del pensamiento crítico cubano."
-                : "An interactive museum of Cuban critical thought."
+                ? "El rap es guerra y las frases que despertaron una generación (2003–2014)."
+                : "El rap es guerra and the lines that awakened a generation (2003–2014)."
             }
           />
         </ScrollReveal>
-
-        <div className="prose prose-invert max-w-3xl space-y-8">
-          {sections.map((s) => (
-            <ScrollReveal key={s.title}>
-              <section>
-                <h2 className="text-2xl font-bold text-gradient-gold">
-                  {s.title}
-                </h2>
-                <p className="mt-4 text-muted-foreground whitespace-pre-line leading-relaxed">
-                  {s.body.replace(/^-\s/gm, "• ")}
-                </p>
-              </section>
-            </ScrollReveal>
-          ))}
-        </div>
       </div>
-      <LegacyMap locale={l} />
+      <RapEsGuerraSection locale={l} />
       <FlipQuotes locale={l} />
-      <TestimonialsCarousel locale={l} />
     </>
   );
 }

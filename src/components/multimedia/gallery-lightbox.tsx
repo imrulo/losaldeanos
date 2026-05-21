@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react";
@@ -76,10 +77,20 @@ export function GalleryLightbox({ locale }: { locale: Locale }) {
               (!img.aspect || img.aspect === "square") && "aspect-square",
             )}
           >
-            <div
-              className="absolute inset-0 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-              style={{ backgroundColor: img.color }}
-            />
+            {img.src ? (
+              <Image
+                src={img.src}
+                alt={img.caption}
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+            ) : (
+              <div
+                className="absolute inset-0 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                style={{ backgroundColor: img.color }}
+              />
+            )}
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/50 transition-opacity">
               <ZoomIn className="h-10 w-10 text-white" />
             </div>
@@ -163,16 +174,29 @@ export function GalleryLightbox({ locale }: { locale: Locale }) {
               animate={{ scale: zoom, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="max-w-4xl w-full max-h-[80vh] rounded-2xl overflow-hidden border border-primary/30"
+              className="relative max-w-4xl w-full max-h-[80vh] rounded-2xl overflow-hidden border border-primary/30 bg-card"
               onClick={(e) => e.stopPropagation()}
-              style={{
-                backgroundColor: images[index].color,
-                transformOrigin: "center center",
-              }}
+              style={{ transformOrigin: "center center" }}
             >
-              <div className="min-h-[50vh] flex flex-col items-center justify-center p-10 text-center">
-                <p className="text-3xl font-black">{images[index].caption}</p>
-                <p className="mt-4 text-muted-foreground">
+              {images[index].src ? (
+                <div className="relative aspect-[4/3] min-h-[40vh]">
+                  <Image
+                    src={images[index].src!}
+                    alt={images[index].caption}
+                    fill
+                    className="object-contain"
+                    sizes="90vw"
+                  />
+                </div>
+              ) : (
+                <div
+                  className="min-h-[50vh] flex flex-col items-center justify-center p-10"
+                  style={{ backgroundColor: images[index].color }}
+                />
+              )}
+              <div className="p-6 text-center border-t border-border">
+                <p className="text-2xl font-black text-warm">{images[index].caption}</p>
+                <p className="mt-2 text-sm text-muted-foreground">
                   {index + 1} / {images.length}
                   {locale === "es" ? " · Flechas o swipe" : " · Arrows or swipe"}
                 </p>

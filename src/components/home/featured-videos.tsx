@@ -9,8 +9,8 @@ export function FeaturedVideos({ locale }: { locale: Locale }) {
     <section className="py-28 px-4 sm:px-6 border-y border-border/50">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <h2 className="text-4xl font-black sm:text-5xl">
-            {locale === "es" ? "Videos destacados" : "Featured videos"}
+          <h2 className="text-4xl font-black sm:text-5xl text-warm">
+            {locale === "es" ? "Multimedia del dúo" : "Duo multimedia"}
           </h2>
           <p className="mt-2 text-muted-foreground">
             {locale === "es"

@@ -1,8 +1,41 @@
 [
-  { "id": "1", "caption": "Al2 y El B — 5 Palmas, origen del dúo", "color": "#0f1a2e", "aspect": "tall" },
-  { "id": "2", "caption": "Juntos en el underground", "color": "#1a1814", "aspect": "square" },
-  { "id": "3", "caption": "Dos voces, una conciencia", "color": "#0f1a18", "aspect": "wide" },
-  { "id": "4", "caption": "La Aldea — el dúo en escena", "color": "#1f1208", "aspect": "square" },
-  { "id": "5", "caption": "Micrófono compartido, verdad compartida", "color": "#12141f", "aspect": "tall" },
-  { "id": "6", "caption": "Legado del dúo, vivo en la memoria", "color": "#141210", "aspect": "square" }
+  {
+    "id": "1",
+    "caption": "Al2 y El B — 5 Palmas, origen del dúo",
+    "color": "#0f1a2e",
+    "aspect": "tall",
+    "src": "/images/duo-wikimedia.jpg"
+  },
+  {
+    "id": "2",
+    "caption": "Juntos en el underground",
+    "color": "#1a1814",
+    "aspect": "square",
+    "src": "/images/duo-wikimedia.jpg"
+  },
+  {
+    "id": "3",
+    "caption": "Dos voces, una conciencia",
+    "color": "#0f1a18",
+    "aspect": "wide",
+    "src": "/images/duo-wikimedia.jpg"
+  },
+  {
+    "id": "4",
+    "caption": "La Aldea — el dúo en escena",
+    "color": "#1f1208",
+    "aspect": "square"
+  },
+  {
+    "id": "5",
+    "caption": "Micrófono compartido, verdad compartida",
+    "color": "#12141f",
+    "aspect": "tall"
+  },
+  {
+    "id": "6",
+    "caption": "Legado del dúo, vivo en la memoria",
+    "color": "#141210",
+    "aspect": "square"
+  }
 ]

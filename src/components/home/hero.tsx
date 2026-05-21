@@ -37,7 +37,7 @@ export function Hero({ locale }: { locale: Locale }) {
           transition={{ delay: 0.1 }}
           className="text-5xl font-black leading-[1.05] sm:text-7xl"
         >
-          &ldquo;{dict.hero.quote}&rdquo;
+          <span className="anthem-glow">{dict.hero.anthem}</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 24 }}

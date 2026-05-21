@@ -109,6 +109,13 @@ body {
   color: transparent;
 }
 
+.anthem-glow {
+  color: var(--warm);
+  text-shadow:
+    0 0 32px color-mix(in srgb, var(--accent) 45%, transparent),
+    0 0 64px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
 .cuban-flag-overlay {
   background: linear-gradient(
     180deg,

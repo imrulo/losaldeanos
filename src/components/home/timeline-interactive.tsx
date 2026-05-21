@@ -3,7 +3,15 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, Clock, Music } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { DUO_HERO_IMAGE } from "@/lib/official-links";
 import { getTimelineAppendix, getTimelineDuo } from "@/lib/content-data";
 import { localePath } from "@/lib/i18n";
 import { OFFICIAL_LINKS, isDuoEraYear } from "@/lib/official-links";
@@ -29,6 +37,7 @@ export function TimelineInteractive({
   const [activeIndex, setActiveIndex] = useState(0);
   const [timeWarp, setTimeWarp] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const dragStart = useRef({ x: 0, scroll: 0 });
   const sound = useMicroSound();
@@ -175,8 +184,7 @@ export function TimelineInteractive({
           </div>
         </div>
 
-        <div className="mt-10 lg:grid lg:grid-cols-[1fr_400px] lg:gap-10 items-start">
-          <div className="relative min-w-0">
+        <div className="mt-10 relative min-w-0">
             <button
               type="button"
               onClick={() => goTo(activeIndex - 1)}
@@ -221,24 +229,27 @@ export function TimelineInteractive({
                   event={event}
                   active={i === activeIndex}
                   duoView={view === "duo"}
-                  onSelect={() => goTo(i)}
+                  onSelect={() => {
+                    goTo(i);
+                    setModalOpen(true);
+                  }}
                   onHover={() => i !== activeIndex && goTo(i)}
                 />
               ))}
             </div>
-          </div>
+        </div>
 
-          <AnimatePresence mode="wait">
+        <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto border-primary/25 p-0">
             {active && (
-              <TimelineDetailPanel
-                key={`${view}-${active.year}`}
+              <TimelineDetailModal
                 event={active}
                 locale={locale}
                 base={base}
               />
             )}
-          </AnimatePresence>
-        </div>
+          </DialogContent>
+        </Dialog>
 
         {!fullPage && (
           <Link
@@ -325,7 +336,7 @@ function TimelineNode({
   );
 }
 
-function TimelineDetailPanel({
+function TimelineDetailModal({
   event,
   locale,
   base,
@@ -337,22 +348,30 @@ function TimelineDetailPanel({
   const searchQ = encodeURIComponent(`Los Aldeanos ${event.title} ${event.year}`);
 
   return (
-    <motion.aside
-      initial={{ opacity: 0, x: 48 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 48 }}
-      transition={{ type: "spring", stiffness: 220, damping: 26 }}
-      className="mt-8 lg:mt-0 rounded-2xl border border-primary/25 bg-card/95 backdrop-blur-xl overflow-hidden glow-blue lg:sticky lg:top-24"
-    >
-      <div
-        className="h-40 relative flex items-end p-5"
-        style={{
-          background: `linear-gradient(145deg, ${event.coverColor ?? "#0f1a2e"} 0%, #0a0908 80%)`,
-        }}
-      >
-        <div className="absolute inset-0 cuban-flag-overlay opacity-40" />
-        <span className="relative text-7xl font-black text-warm/10">{event.year}</span>
-        <Badge className="relative ml-auto bg-primary text-primary-foreground">
+    <>
+      <div className="relative h-48 sm:h-56">
+        {!event.isAppendix ? (
+          <Image
+            src={DUO_HERO_IMAGE}
+            alt="Los Aldeanos — el dúo"
+            fill
+            className="object-cover"
+            sizes="(max-width: 672px) 100vw"
+          />
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(145deg, ${event.coverColor ?? "#1a1814"} 0%, #0a0908 100%)`,
+            }}
+          />
+        )}
+        <div className="absolute inset-0 cuban-flag-overlay opacity-35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+        <span className="absolute bottom-4 left-5 text-6xl font-black text-warm/15">
+          {event.year}
+        </span>
+        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
           {event.isAppendix
             ? locale === "es"
               ? "Apéndice"
@@ -364,7 +383,11 @@ function TimelineDetailPanel({
       </div>
 
       <div className="p-5 sm:p-6 space-y-4">
-        <h3 className="text-2xl font-black text-warm leading-tight">{event.title}</h3>
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-black text-warm text-left">
+            {event.title}
+          </DialogTitle>
+        </DialogHeader>
         <p className="text-sm text-muted-foreground leading-relaxed">
           {event.longDescription ?? event.description}
         </p>
@@ -405,6 +428,6 @@ function TimelineDetailPanel({
           </Button>
         </div>
       </div>
-    </motion.aside>
+    </>
   );
 }

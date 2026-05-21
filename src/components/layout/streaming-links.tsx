@@ -18,19 +18,19 @@ export function StreamingLinks({
     },
     {
       href: OFFICIAL_LINKS.youtubeDuo,
-      label: locale === "es" ? "YouTube — Los Aldeanos" : "YouTube — Los Aldeanos",
+      label: locale === "es" ? "YouTube — Dúo" : "YouTube — Duo",
       icon: PlayCircle,
       primary: true,
     },
     {
       href: OFFICIAL_LINKS.youtubeAl2,
-      label: "Al2",
+      label: "YouTube — Al2",
       icon: PlayCircle,
       primary: false,
     },
     {
       href: OFFICIAL_LINKS.youtubeElB,
-      label: "El B",
+      label: "YouTube — El B",
       icon: PlayCircle,
       primary: false,
     },

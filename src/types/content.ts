@@ -61,6 +61,7 @@ export interface GalleryImage {
   caption: string;
   color: string;
   aspect?: "square" | "tall" | "wide";
+  src?: string;
 }
 
 export interface SearchDocument {

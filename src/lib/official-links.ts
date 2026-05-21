@@ -1,14 +1,20 @@
-/** Enlaces oficiales y prioritarios — el dúo es el corazón del archivo. */
+/** Enlaces verificados — dúo primero, solistas como apéndice. */
 export const OFFICIAL_LINKS = {
   spotifyDuo: "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
-  spotifyEmbed: "https://open.spotify.com/embed/artist/4Y6VI2Mfdhvb1RImggzOiY?utm_source=generator",
-  youtubeDuo: "https://www.youtube.com/@LosAldeanosOficial",
-  youtubeDuoEmbed:
-    "https://www.youtube.com/embed?listType=search&list=Los+Aldeanos+duo+official",
-  youtubeAl2: "https://www.youtube.com/c/al2elaldeano",
-  youtubeElB: "https://www.youtube.com/results?search_query=El+B+Los+Aldeanos",
+  spotifyEmbed:
+    "https://open.spotify.com/embed/artist/4Y6VI2Mfdhvb1RImggzOiY?utm_source=generator",
+  /** Búsqueda curada del dúo en YouTube (sin canal único confirmado del dúo). */
+  youtubeDuo:
+    "https://www.youtube.com/results?search_query=Los+Aldeanos+official+music",
+  youtubeAl2: "https://www.youtube.com/channel/UCYw09b1bNwXBickiw3k5aOw",
+  youtubeElB: "https://www.youtube.com/user/elboficial",
   github: "https://github.com/imrulo",
 } as const;
+
+/** Foto pública del dúo (Wikimedia Commons, dominio público). */
+export const DUO_HERO_IMAGE = "/images/duo-wikimedia.jpg";
+export const DUO_HERO_ATTRIBUTION =
+  "Foto: Wikimedia Commons · Aldo y El B (dominio público)";
 
 export const DUO_ERA = { start: 2003, end: 2014 } as const;
 

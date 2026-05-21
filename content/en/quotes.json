@@ -2,8 +2,8 @@
   {
     "id": "rap-guerra",
     "lyric": "Rap is war, rap is culture, rap is the voice of my generation.",
-    "context": "A manifesto for a generation that chose the microphone as a weapon of consciousness.",
-    "theme": "consciousness"
+    "context": "Manifesto of a generation that chose the microphone as a weapon of conscience.",
+    "theme": "conscience"
   },
   {
     "id": "libertad",
@@ -13,14 +13,14 @@
   },
   {
     "id": "revolucion",
-    "lyric": "Not a revolution of arms, but of ideas.",
-    "context": "Critical thought without toxic politics — only truth and reflection.",
+    "lyric": "It is not a revolution of weapons, it is a revolution of ideas.",
+    "context": "Critical thinking without toxic politics — only truth and reflection.",
     "theme": "thought"
   },
   {
     "id": "juventud",
-    "lyric": "We are the generation that won't stay silent.",
-    "context": "Youth empowerment from the block to the diaspora.",
+    "lyric": "We are the generation that does not stay silent.",
+    "context": "Youth empowerment from the neighborhood to the diaspora.",
     "theme": "youth"
   }
 ]
