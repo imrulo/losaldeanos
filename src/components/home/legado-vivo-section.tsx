@@ -16,7 +16,7 @@ export function LegadoVivoSection({ locale }: { locale: Locale }) {
     >
       <div className="mx-auto max-w-3xl">
         <ScrollReveal>
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-primary mb-3">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent mb-3">
             {locale === "es" ? "Para la comunidad aldeana" : "For the aldeana community"}
           </p>
           <h2 className="text-4xl sm:text-5xl font-black text-warm tracking-tight">

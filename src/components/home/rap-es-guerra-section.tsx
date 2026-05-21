@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Music } from "lucide-react";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
+import { SpotifyPlayerBlock } from "@/components/shared/spotify-player-block";
 import { getArchiveCopy } from "@/lib/archive-copy";
-import { OFFICIAL_LINKS } from "@/lib/official-links";
 import { localePath } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
 import { Button } from "@/components/ui/button";
@@ -65,14 +64,12 @@ export function RapEsGuerraSection({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        <ScrollReveal className="mt-10 flex flex-wrap gap-3">
-          <Button asChild variant="accent" size="lg" className="font-black glow-warm">
-            <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
-              <Music className="h-4 w-4 mr-2" />
-              {locale === "es" ? "Escuchar en Spotify" : "Listen on Spotify"}
-            </a>
-          </Button>
-          <Button asChild variant="outline" className="border-primary/40">
+        <ScrollReveal className="mt-10">
+          <SpotifyPlayerBlock locale={locale} compact />
+        </ScrollReveal>
+
+        <ScrollReveal className="mt-6">
+          <Button asChild variant="outline" className="border-border/80 text-warm hover:border-accent/50">
             <Link href={`${base}/letras/rap-es-guerra`}>
               {locale === "es" ? "Leer en letras" : "Read in lyrics"}
             </Link>

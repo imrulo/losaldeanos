@@ -148,7 +148,7 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
           className="mt-14 inline-flex flex-col items-center gap-2 text-sm text-muted-foreground hover:text-accent"
         >
           {dict.hero.scroll}
-          <ChevronDown className="h-6 w-6 animate-bounce text-primary" />
+          <ChevronDown className="h-6 w-6 animate-bounce text-accent" />
         </motion.a>
 
         {imgOk && (

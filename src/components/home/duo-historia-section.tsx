@@ -38,7 +38,7 @@ export function DuoHistoriaSection({
             <ScrollReveal key={block.heading ?? i} delay={i * 0.04}>
               <article className="prose-archive">
                 {block.heading && (
-                  <h3 className="text-xl sm:text-2xl font-bold text-primary tracking-tight mb-5">
+                  <h3 className="text-xl sm:text-2xl font-bold text-accent tracking-tight mb-5">
                     {block.heading}
                   </h3>
                 )}

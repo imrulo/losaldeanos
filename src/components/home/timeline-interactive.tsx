@@ -106,7 +106,7 @@ export function TimelineInteractive({
           <div className="flex items-end gap-4 flex-wrap">
             <Clock className="h-10 w-10 text-accent shrink-0" />
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.35em] text-primary mb-2">
+              <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent mb-2">
                 {locale === "es" ? "Memoria del dúo" : "Duo memory"}
               </p>
               <h2 className="text-4xl font-black sm:text-5xl tracking-tight text-warm">
@@ -252,7 +252,7 @@ export function TimelineInteractive({
         {!fullPage && (
           <a
             href={`${base}/historia`}
-            className="mt-10 inline-flex text-sm font-bold text-primary hover:text-accent"
+            className="mt-10 inline-flex text-sm font-bold text-primary-bright hover:text-accent"
           >
             {locale === "es" ? "Historia completa →" : "Full history →"}
           </a>
@@ -344,7 +344,7 @@ function TimelineDetailModal({
   return (
     <div className="p-5 sm:p-6 space-y-5">
       <div>
-        <Badge className="mb-3 bg-primary/20 text-primary border-primary/30">
+        <Badge className="mb-3 bg-primary/30 text-warm border-primary-bright/40">
           {event.isAppendix
             ? locale === "es"
               ? "Apéndice"

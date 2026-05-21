@@ -25,7 +25,7 @@ export default async function SobrePage({
       />
 
       <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-6">
-        <h2 className="text-lg font-bold text-primary">{dict.disclaimer.title}</h2>
+        <h2 className="text-lg font-bold text-accent">{dict.disclaimer.title}</h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">
           {dict.disclaimer.body}
         </p>

@@ -41,7 +41,7 @@ export function Navbar({ locale }: { locale: Locale }) {
           href={base}
           className="flex items-center gap-2 font-black tracking-tight text-foreground hover:text-primary"
         >
-          <Mic2 className="h-6 w-6 text-primary" aria-hidden />
+          <Mic2 className="h-6 w-6 text-accent" aria-hidden />
           <span>Los Aldeanos</span>
         </Link>
 
@@ -57,8 +57,8 @@ export function Navbar({ locale }: { locale: Locale }) {
                 key={key}
                 href={href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
-                  active && "text-primary",
+                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary-bright",
+                  active && "text-accent",
                 )}
               >
                 {dict.nav[key]}

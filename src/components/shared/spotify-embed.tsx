@@ -11,14 +11,14 @@ export function SpotifyEmbed({
   return (
     <div
       className={cn(
-        "rounded-xl overflow-hidden border border-primary/25 bg-black/30",
+        "rounded-xl overflow-hidden border border-[#1DB954]/25 bg-[#121212]",
         className,
       )}
     >
       <iframe
         title="Spotify — Los Aldeanos"
         src={OFFICIAL_LINKS.spotifyEmbed}
-        className={compact ? "h-[152px] w-full" : "h-[352px] w-full"}
+        className={compact ? "h-[152px] w-full" : "h-[380px] w-full max-w-full"}
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
       />

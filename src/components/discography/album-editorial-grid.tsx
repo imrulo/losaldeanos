@@ -1,11 +1,9 @@
 "use client";
 
-import { Music } from "lucide-react";
 import { getAlbumsAppendix, getAlbumsDuo } from "@/lib/content-data";
 import { getArchiveCopy } from "@/lib/archive-copy";
-import { OFFICIAL_LINKS } from "@/lib/official-links";
+import { SpotifyPlayerBlock } from "@/components/shared/spotify-player-block";
 import type { Album, Locale } from "@/types/content";
-import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
 
 export function AlbumEditorialGrid({ locale }: { locale: Locale }) {
@@ -16,20 +14,11 @@ export function AlbumEditorialGrid({ locale }: { locale: Locale }) {
   return (
     <div className="space-y-12">
       <ScrollReveal>
-        <div className="rounded-2xl border border-primary/25 bg-gradient-to-br from-primary/12 to-card/40 p-6 sm:p-10">
+        <div className="rounded-2xl border border-border/60 bg-card/30 p-6 sm:p-10 space-y-8">
           <p className="text-lg sm:text-xl text-warm leading-relaxed max-w-3xl">
             {copy.discography.lead}
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="mt-8 h-14 px-8 bg-[#1DB954] hover:bg-[#1ed760] text-white font-black shadow-lg shadow-[#1DB954]/25"
-          >
-            <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
-              <Music className="h-5 w-5 mr-2" />
-              {copy.discography.spotifyCta}
-            </a>
-          </Button>
+          <SpotifyPlayerBlock locale={locale} />
         </div>
       </ScrollReveal>
 
@@ -61,7 +50,7 @@ export function AlbumEditorialGrid({ locale }: { locale: Locale }) {
                     href={album.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:underline"
+                    className="text-primary-bright hover:text-accent underline-offset-2 hover:underline"
                   >
                     {locale === "es" ? "Canal oficial" : "Official channel"}
                   </a>
@@ -95,7 +84,7 @@ function AlbumEditorialRow({
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent/15 text-accent font-black text-lg">
           {index}
         </span>
-        <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">
+        <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
           {album.year}
         </span>
       </div>
