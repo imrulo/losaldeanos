@@ -9,14 +9,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 glow-red",
+          "bg-primary text-primary-foreground hover:bg-primary/90 glow-blue",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         outline:
-          "border border-border bg-transparent hover:border-primary hover:text-primary",
+          "border border-border bg-transparent hover:border-primary hover:text-warm",
         ghost: "hover:bg-muted hover:text-foreground",
         accent:
-          "bg-accent text-accent-foreground hover:bg-accent/90",
+          "bg-accent text-accent-foreground hover:bg-accent/90 glow-warm",
+        cuban: "btn-cuban-red hover:glow-red",
       },
       size: {
         default: "h-10 px-5 py-2",

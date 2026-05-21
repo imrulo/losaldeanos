@@ -11,6 +11,8 @@ export interface TimelineEvent {
   artist?: ArtistFilter;
   coverColor?: string;
   youtubeId?: string;
+  isDuoEra?: boolean;
+  isAppendix?: boolean;
 }
 
 export interface Album {
@@ -25,6 +27,7 @@ export interface Album {
   youtube?: string;
   apple?: string;
   previewYoutubeId?: string;
+  isAppendix?: boolean;
 }
 
 export interface LyricEntry {

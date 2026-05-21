@@ -37,7 +37,7 @@ export function FlipQuotes({ locale }: { locale: Locale }) {
                   className="flip-card-inner relative w-full h-full"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="flip-card-front absolute inset-0 rounded-2xl border-2 border-border bg-card p-6 flex flex-col justify-between shadow-lg group-hover:border-primary/50 transition-colors">
+                  <div className="flip-card-front absolute inset-0 rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5 p-6 flex flex-col justify-between shadow-lg group-hover:border-accent/50 group-hover:glow-warm transition-colors">
                     <Badge variant="accent" className="w-fit">
                       {q.theme}
                     </Badge>
@@ -48,7 +48,7 @@ export function FlipQuotes({ locale }: { locale: Locale }) {
                       {locale === "es" ? "Voltear →" : "Flip →"}
                     </p>
                   </div>
-                  <div className="flip-card-back absolute inset-0 rounded-2xl border-2 border-primary bg-primary/10 p-6 flex items-center backdrop-blur-sm">
+                  <div className="flip-card-back absolute inset-0 rounded-2xl border-2 border-accent/40 bg-primary/20 p-6 flex items-center backdrop-blur-sm">
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {q.context}
                     </p>

@@ -2,77 +2,67 @@
   {
     "year": 2003,
     "title": "Primer show en 5 Palmas",
-    "description": "Debut en vivo en el barrio que marcó el inicio del rap conciencia cubano.",
-    "longDescription": "Los Aldeanos debutan en 5 Palmas con un show crudo y directo. Desde ese barrio nace la semilla de un movimiento que transformaría el underground cubano.",
+    "description": "Donde todo comenzó — el barrio, el micrófono, la verdad.",
+    "longDescription": "Los Aldeanos debutan en 5 Palmas. Dos voces, un barrio, una generación que encontró en el rap su espejo. Aquí nace La Aldea.",
     "highlight": true,
     "artist": "los-aldeanos",
-    "coverColor": "#1a0508",
-    "youtubeId": ""
+    "isDuoEra": true,
+    "coverColor": "#0f1a2e"
   },
   {
     "year": 2005,
     "title": "Formación del dúo",
-    "description": "Al2 y El B consolidan Los Aldeanos con estilo reflexivo y urbano.",
-    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) y Bian Oscar Rodríguez Galá (El B) unen fuerzas. Metáfora filosófica + flow de calle = sello Aldeano.",
+    "description": "Al2 y El B — dos hermanos de palabra, un solo latido.",
+    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) y Bian Oscar Rodríguez Galá (El B) sellan el dúo. Metáfora y calle, filosofía y flow.",
     "artist": "los-aldeanos",
-    "coverColor": "#2a1010"
+    "isDuoEra": true,
+    "coverColor": "#142a4a"
   },
   {
     "year": 2008,
     "title": "Censurados",
-    "description": "Álbum fundacional del rap conciencia en Cuba.",
-    "longDescription": "Censurados cristaliza la voz crítica del dúo. Temas como generación, guerra del pensamiento y denuncia social se vuelven himnos underground.",
+    "description": "El álbum que definió una generación.",
+    "longDescription": "Censurados: crítica social, poesía urbana, conciencia despierta. Un antes y un después en el rap cubano.",
     "highlight": true,
     "artist": "los-aldeanos",
-    "coverColor": "#1a0a0a",
-    "youtubeId": ""
+    "isDuoEra": true,
+    "coverColor": "#1a2040"
   },
   {
     "year": 2010,
     "title": "Poesía Esposada",
-    "description": "Poética y denuncia con madurez lírica notable.",
-    "longDescription": "Un puente entre el amor, la metáfora y la crítica social. Libertad y reflexión como ejes centrales.",
+    "description": "Amor, metáfora y libertad en cada verso.",
+    "longDescription": "Obra madura del dúo: denuncia con ternura, reflexión con fuego. El underground elevado a literatura.",
     "artist": "los-aldeanos",
-    "coverColor": "#2a1515"
+    "isDuoEra": true,
+    "coverColor": "#1f2848"
   },
   {
     "year": 2012,
     "title": "El Atropello",
-    "description": "Mensajes de libertad y pensamiento independiente.",
-    "longDescription": "Producción que amplía el alcance del dúo. Revolución del pensamiento — no partidista, sino humanista y crítico.",
+    "description": "Pensamiento independiente a volumen alto.",
+    "longDescription": "Mensajes de libertad y juventud que trascienden la isla. El dúo en su momento más expansivo.",
     "artist": "los-aldeanos",
-    "coverColor": "#0f1a18"
+    "isDuoEra": true,
+    "coverColor": "#152238"
   },
   {
     "year": 2014,
     "title": "Separación del dúo",
-    "description": "Fin de la era conjunta; inicio de dos caminos solistas.",
-    "longDescription": "Los Aldeanos anuncian su separación. El legado permanece; cada MC expande el movimiento por su cuenta.",
+    "description": "Fin de una era — el legado permanece.",
+    "longDescription": "Los Aldeanos cierran su capítulo conjunto. Lo que construyeron juntos sigue vivo en millones de corazones aldeanos.",
+    "highlight": true,
     "artist": "los-aldeanos",
-    "coverColor": "#141414"
+    "isDuoEra": true,
+    "coverColor": "#121820"
   },
   {
     "year": 2015,
-    "title": "Carreras en solitario",
-    "description": "Al2 y El B continúan el legado en proyectos individuales.",
-    "longDescription": "Al2 explora nuevas producciones en su canal oficial. El B desarrolla su voz narrativa. La Aldea sigue viva en la diáspora.",
-    "highlight": true,
+    "title": "Después del dúo (apéndice)",
+    "description": "Caminos en solitario — breve nota al margen del archivo principal.",
+    "longDescription": "Al2 y El B continúan por separado. Este museo honra sobre todo los años 2003–2014, cuando eran uno.",
     "artist": "all",
-    "coverColor": "#1f1208",
-    "youtubeId": ""
-  },
-  {
-    "year": 2016,
-    "title": "Al2 — era solista",
-    "description": "Canal oficial y nuevas obras de Al2 El Aldeano.",
-    "artist": "al2",
-    "coverColor": "#1f1208"
-  },
-  {
-    "year": 2017,
-    "title": "El B — proyectos propios",
-    "description": "Trayectoria individual de El B tras la separación.",
-    "artist": "el-b",
-    "coverColor": "#12141f"
+    "isAppendix": true,
+    "coverColor": "#1a1814"
   }
 ]

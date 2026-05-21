@@ -4,6 +4,7 @@ import { HeroImmersive } from "@/components/home/hero-immersive";
 import { TimelineInteractive } from "@/components/home/timeline-interactive";
 import { ReleasesCarousel } from "@/components/home/releases-carousel";
 import { FeaturedVideos } from "@/components/home/featured-videos";
+import { GalleryLightbox } from "@/components/multimedia/gallery-lightbox";
 import { LegacyMap } from "@/components/home/legacy-map";
 import { FlipQuotes } from "@/components/home/flip-quotes";
 import { TestimonialsCarousel } from "@/components/home/testimonials-carousel";
@@ -18,6 +19,23 @@ export function HomeExperience({ locale }: { locale: Locale }) {
       <TimelineInteractive locale={locale} />
       <ReleasesCarousel locale={locale} />
       <FeaturedVideos locale={locale} />
+      <section className="py-28 px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl">
+          <ScrollReveal>
+            <h2 className="text-4xl font-black sm:text-5xl text-warm">
+              {locale === "es" ? "Galería del dúo" : "Duo gallery"}
+            </h2>
+            <p className="mt-2 text-muted-foreground max-w-xl">
+              {locale === "es"
+                ? "Momentos de Al2 y El B juntos — toca para ampliar."
+                : "Moments of Al2 and El B together — tap to enlarge."}
+            </p>
+          </ScrollReveal>
+          <div className="mt-10">
+            <GalleryLightbox locale={locale} />
+          </div>
+        </div>
+      </section>
       <LegacyMap locale={locale} />
       <FlipQuotes locale={locale} />
       <TestimonialsCarousel locale={locale} />

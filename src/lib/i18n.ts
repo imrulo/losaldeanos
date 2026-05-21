@@ -64,10 +64,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       search: "Buscar",
     },
     hero: {
-      quote: "El rap es guerra",
-      tagline: "Archivo Digital · Legado Vivo · Para la Comunidad",
-      cta: "Explorar el archivo",
-      scroll: "Descubre el legado",
+      quote: "Los Aldeanos — Archivo Digital del Legado",
+      tagline: "2003–2014 · El dúo que despertó una generación · Con orgullo cubano",
+      cta: "Recorrer la era del dúo",
+      scroll: "Viaje en el tiempo",
     },
     footer: {
       madeWith: "Hecho con amor para la comunidad aldeana ❤️ por imrulo.eth",
@@ -108,10 +108,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       search: "Search",
     },
     hero: {
-      quote: "Rap is war",
-      tagline: "Digital Archive · Living Legacy · For the Community",
-      cta: "Explore the archive",
-      scroll: "Discover the legacy",
+      quote: "Los Aldeanos — Digital Archive of the Legacy",
+      tagline: "2003–2014 · The duo that awakened a generation · Cuban pride",
+      cta: "Explore the duo era",
+      scroll: "Journey through time",
     },
     footer: {
       madeWith: "Made with love for the aldeana community ❤️ by imrulo.eth",

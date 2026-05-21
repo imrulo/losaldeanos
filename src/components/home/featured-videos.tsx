@@ -14,8 +14,8 @@ export function FeaturedVideos({ locale }: { locale: Locale }) {
           </h2>
           <p className="mt-2 text-muted-foreground">
             {locale === "es"
-              ? "Hover para preview — contenido público en YouTube."
-              : "Hover for preview — public content on YouTube."}
+              ? "Primero el dúo en YouTube; canales solistas como apéndice."
+              : "Duo on YouTube first; solo channels as appendix."}
           </p>
         </ScrollReveal>
         <div className="mt-10">

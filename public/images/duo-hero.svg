@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1a2e"/>
+      <stop offset="50%" stop-color="#0a0908"/>
+      <stop offset="100%" stop-color="#1a1814"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e6b800" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e6b800" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#gold)"/>
+  <!-- Siluetas del dúo -->
+  <ellipse cx="420" cy="520" rx="140" ry="220" fill="#002F6C" opacity="0.5"/>
+  <ellipse cx="780" cy="520" rx="140" ry="220" fill="#002F6C" opacity="0.5"/>
+  <circle cx="420" cy="280" r="72" fill="#1a2848"/>
+  <circle cx="780" cy="280" r="72" fill="#1a2848"/>
+  <!-- Micrófono central -->
+  <rect x="575" y="200" width="50" height="120" rx="8" fill="#E6B800" opacity="0.7"/>
+  <circle cx="600" cy="180" r="35" fill="#E6B800" opacity="0.5"/>
+  <text x="600" y="720" text-anchor="middle" fill="#F5F0E6" font-family="system-ui" font-size="28" font-weight="700" opacity="0.9">LOS ALDEANOS</text>
+  <text x="600" y="755" text-anchor="middle" fill="#E6B800" font-family="system-ui" font-size="16" opacity="0.8">2003  2014</text>
+</svg>

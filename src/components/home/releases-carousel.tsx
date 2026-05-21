@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import Link from "next/link";
 import { useCallback } from "react";
-import { getAlbums } from "@/lib/content-data";
+import { getAlbumsDuo } from "@/lib/content-data";
 import { localePath } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
@@ -14,7 +14,7 @@ import { TiltCard } from "@/components/museum/tilt-card";
 import { useMicroSound } from "@/hooks/use-micro-sound";
 
 export function ReleasesCarousel({ locale }: { locale: Locale }) {
-  const albums = getAlbums(locale).filter((a) => a.artist === "los-aldeanos");
+  const albums = getAlbumsDuo(locale);
   const slides = [...albums, ...albums];
   const base = localePath(locale);
   const sound = useMicroSound();
@@ -42,7 +42,9 @@ export function ReleasesCarousel({ locale }: { locale: Locale }) {
             {locale === "es" ? "Lanzamientos destacados" : "Featured releases"}
           </h2>
           <p className="mt-2 text-muted-foreground">
-            {locale === "es" ? "Pasa el cursor — inclina la portada." : "Hover to tilt the cover."}
+            {locale === "es"
+              ? "Álbumes del dúo (2003–2014) — pasa el cursor."
+              : "Duo albums (2003–2014) — hover to explore."}
           </p>
         </ScrollReveal>
 
@@ -71,7 +73,7 @@ export function ReleasesCarousel({ locale }: { locale: Locale }) {
                         <motion.span
                           initial={false}
                           whileHover={{ scale: 1.1 }}
-                          className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground glow-red shadow-2xl"
+                          className="flex h-20 w-20 items-center justify-center rounded-full bg-accent text-accent-foreground glow-warm shadow-2xl"
                         >
                           <Play className="h-10 w-10 ml-1" fill="currentColor" />
                         </motion.span>
@@ -99,14 +101,14 @@ export function ReleasesCarousel({ locale }: { locale: Locale }) {
           <button
             type="button"
             onClick={scrollPrev}
-            className="h-12 w-12 rounded-full border-2 border-border font-bold hover:border-primary hover:glow-red transition-all"
+            className="h-12 w-12 rounded-full border-2 border-border font-bold hover:border-primary hover:glow-blue transition-all"
           >
             ←
           </button>
           <button
             type="button"
             onClick={scrollNext}
-            className="h-12 w-12 rounded-full border-2 border-border font-bold hover:border-primary hover:glow-red transition-all"
+            className="h-12 w-12 rounded-full border-2 border-border font-bold hover:border-primary hover:glow-blue transition-all"
           >
             →
           </button>

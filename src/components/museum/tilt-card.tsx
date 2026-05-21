@@ -25,7 +25,7 @@ export function TiltCard({
       whileTap={{ scale: 0.98 }}
       className={cn("perspective-[1000px]", className)}
     >
-      <div className="transition-transform duration-200 hover:glow-red">
+      <div className="transition-transform duration-200 hover:glow-warm">
         {children}
       </div>
     </motion.div>

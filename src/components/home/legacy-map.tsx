@@ -25,8 +25,8 @@ export function LegacyMap({ locale }: { locale: Locale }) {
           </h2>
           <p className="mt-3 text-center text-muted-foreground max-w-lg mx-auto">
             {locale === "es"
-              ? "Red interactiva — clic o hover en cada nodo."
-              : "Interactive network — click or hover each node."}
+              ? "El dúo en el centro — rutas hacia historia, discografía y más."
+              : "The duo at the center — paths to history, discography, and more."}
           </p>
         </ScrollReveal>
 
@@ -46,7 +46,7 @@ export function LegacyMap({ locale }: { locale: Locale }) {
                     y1={50}
                     x2={node.x}
                     y2={node.y}
-                    stroke={active === node.id || active === "centro" ? "#C8102E" : "#333"}
+                    stroke={active === node.id || active === "centro" ? "#E6B800" : "#002F6C"}
                     strokeWidth={active === node.id ? 0.8 : 0.4}
                     initial={false}
                     animate={{
@@ -76,7 +76,7 @@ export function LegacyMap({ locale }: { locale: Locale }) {
                     animate={{
                       scale: isActive ? 1.15 : 1,
                       boxShadow: isActive
-                        ? "0 0 40px rgba(200,16,46,0.5)"
+                        ? "0 0 40px rgba(230,184,0,0.35)"
                         : "0 0 0 transparent",
                     }}
                     className={cn(
@@ -102,7 +102,7 @@ export function LegacyMap({ locale }: { locale: Locale }) {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              className="rounded-xl border border-border bg-card p-6 glow-red"
+              className="rounded-xl border border-primary/25 bg-card p-6 glow-warm"
             >
               <h3 className="text-xl font-black text-primary">
                 {locale === "es" ? activeNode.es : activeNode.en}

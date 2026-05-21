@@ -78,3 +78,19 @@ export function getQuotes(locale: Locale): QuoteCard[] {
 export function getGallery(locale: Locale): GalleryImage[] {
   return data[locale].gallery;
 }
+
+export function getTimelineDuo(locale: Locale): TimelineEvent[] {
+  return getTimeline(locale).filter((e) => e.isDuoEra && !e.isAppendix);
+}
+
+export function getTimelineAppendix(locale: Locale): TimelineEvent[] {
+  return getTimeline(locale).filter((e) => e.isAppendix);
+}
+
+export function getAlbumsDuo(locale: Locale): Album[] {
+  return getAlbums(locale).filter((a) => a.artist === "los-aldeanos");
+}
+
+export function getAlbumsAppendix(locale: Locale): Album[] {
+  return getAlbums(locale).filter((a) => a.isAppendix);
+}

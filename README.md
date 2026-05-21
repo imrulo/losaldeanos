@@ -98,14 +98,20 @@ Ver **[CONTENT_GUIDE.md](./CONTENT_GUIDE.md)** para añadir álbumes, timeline, 
 4. Redirect opcional `www` → apex en Cloudflare Rules o Vercel redirects.
 5. `vercel.json` ya incluye headers de seguridad y caché para fuentes.
 
-## Paleta de diseño
+## Paleta de diseño (cálida y cubana)
 
 | Color | Hex | Uso |
 |-------|-----|-----|
-| Negro profundo | `#0A0A0A` | Fondo |
-| Rojo cubano | `#C8102E` | Acento / energía |
-| Dorado | `#F4A261` | Highlights legado |
-| Verde calma | `#2A9D8F` | Reflexión |
+| Negro profundo | `#0A0908` | Fondo + textura sutil |
+| Azul bandera | `#002F6C` | Primario, nodos, CTAs |
+| Crema | `#F5F0E6` | Texto cálido |
+| Dorado | `#E6B800` | Acentos, era 2003–2014 |
+| Rojo cubano | `#C8102E` | Solo highlights secundarios |
+
+## Enlaces oficiales (dúo primero)
+
+- [Spotify — Los Aldeanos](https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY)
+- YouTube dúo (principal) + canales Al2 / El B como apéndice en footer
 
 ## Escalar CMS
 
