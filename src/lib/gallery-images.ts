@@ -1,50 +1,42 @@
-import { ALBUM_COVERS } from "@/lib/album-covers";
 import { DUO_HERO_IMAGE } from "@/lib/official-links";
 import type { GalleryImage } from "@/types/content";
 
-/** Galería sin repetir la misma imagen — dúo + portadas de álbumes. */
+/** Galería: una sola foto del dúo + paneles visuales (sin repetir portadas de álbumes). */
 export function getDuoGallery(locale: "es" | "en"): GalleryImage[] {
   const es = locale === "es";
   return [
     {
-      id: "duo-origin",
+      id: "duo-main",
       caption: es
-        ? "Al2 y El B — 5 Palmas, origen del dúo"
-        : "Al2 & El B — 5 Palmas, duo origin",
+        ? "Al2 y El B — el dúo en su esencia"
+        : "Al2 & El B — the duo at its core",
       color: "#0f1a2e",
       aspect: "tall",
       src: DUO_HERO_IMAGE,
     },
     {
-      id: "cover-censurados",
-      caption: es ? "Censurados (2008)" : "Censurados (2008)",
-      color: "#0f1a2e",
-      aspect: "square",
-      src: ALBUM_COVERS.censurados,
-    },
-    {
-      id: "cover-poesia",
-      caption: es ? "Poesía Esposada (2010)" : "Poesía Esposada (2010)",
+      id: "vinyl-era",
+      caption: es ? "Underground cubano · 2003" : "Cuban underground · 2003",
       color: "#142a4a",
-      aspect: "wide",
-      src: ALBUM_COVERS["poesia-esposada"],
-    },
-    {
-      id: "cover-atropello",
-      caption: es ? "El Atropello (2012)" : "El Atropello (2012)",
-      color: "#1a2040",
       aspect: "square",
-      src: ALBUM_COVERS["el-atropello"],
     },
     {
-      id: "era-close",
-      caption: es
-        ? "2003–2014 — el legado del dúo"
-        : "2003–2014 — the duo's legacy",
-      color: "#141210",
+      id: "conciencia",
+      caption: es ? "Rap conciencia · verdad en el mic" : "Conscious rap · truth on the mic",
+      color: "#1a2040",
+      aspect: "wide",
+    },
+    {
+      id: "aldea",
+      caption: es ? "La Aldea — comunidad" : "La Aldea — community",
+      color: "#1f1208",
+      aspect: "square",
+    },
+    {
+      id: "legado",
+      caption: es ? "2003–2014 · legado vivo" : "2003–2014 · living legacy",
+      color: "#121820",
       aspect: "tall",
-      src: DUO_HERO_IMAGE,
-      crop: "top",
     },
   ];
 }

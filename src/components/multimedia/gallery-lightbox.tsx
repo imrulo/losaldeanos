@@ -89,14 +89,14 @@ export function GalleryLightbox({ locale }: { locale: Locale }) {
                 alt={img.caption}
                 fill
                 className={cn(
-                  "grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500",
+                  "grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500",
                   cropClass[img.crop ?? "center"],
                 )}
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
             ) : (
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background to-accent/10"
                 style={{ backgroundColor: img.color }}
               />
             )}

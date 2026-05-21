@@ -1,63 +1,55 @@
 "use client";
 
-import Link from "next/link";
 import { HeroImmersive } from "@/components/home/hero-immersive";
 import { TimelineInteractive } from "@/components/home/timeline-interactive";
 import { AlbumMuseumGrid } from "@/components/discography/album-museum-grid";
 import { GalleryLightbox } from "@/components/multimedia/gallery-lightbox";
 import { RapEsGuerraSection } from "@/components/home/rap-es-guerra-section";
 import { FlipQuotes } from "@/components/home/flip-quotes";
-import { ScrollReveal } from "@/components/museum/scroll-reveal";
-import { localePath } from "@/lib/i18n";
+
 import type { Locale } from "@/types/content";
 
 export function HomeExperience({ locale }: { locale: Locale }) {
-  const base = localePath(locale);
-
   return (
     <>
       <HeroImmersive locale={locale} />
       <TimelineInteractive locale={locale} />
 
-      <section id="discografia" className="py-28 px-4 sm:px-6 bg-card/15">
+      <section id="discografia" className="py-24 sm:py-32 px-4 sm:px-6 bg-card/10 scroll-mt-20">
         <div className="mx-auto max-w-7xl">
-          <ScrollReveal>
-            <h2 className="text-4xl font-black sm:text-5xl text-warm">
-              {locale === "es" ? "Discografía del dúo" : "Duo discography"}
-            </h2>
-            <p className="mt-2 text-muted-foreground max-w-xl">
-              {locale === "es"
-                ? "Portadas originales · Censurados, Poesía Esposada, El Atropello."
-                : "Original covers · Censurados, Poesía Esposada, El Atropello."}
+          <header className="max-w-2xl mb-12">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent mb-3">
+              {locale === "es" ? "Música del dúo" : "Duo music"}
             </p>
-          </ScrollReveal>
-          <div className="mt-10">
-            <AlbumMuseumGrid locale={locale} />
-          </div>
-          <Link
-            href={`${base}/discografia`}
-            className="mt-8 inline-flex text-sm font-bold text-primary hover:text-accent"
-          >
-            {locale === "es" ? "Página de discografía →" : "Discography page →"}
-          </Link>
+            <h2 className="text-4xl font-black sm:text-5xl text-warm tracking-tight">
+              {locale === "es" ? "Discografía" : "Discography"}
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              {locale === "es"
+                ? "Tres obras esenciales del dúo. Cada álbum aparece una sola vez — escucha en Spotify oficial."
+                : "Three essential duo albums. Each appears once — listen on official Spotify."}
+            </p>
+          </header>
+          <AlbumMuseumGrid locale={locale} showIntro={false} />
         </div>
       </section>
 
-      <section className="py-28 px-4 sm:px-6">
+      <section id="multimedia" className="py-24 sm:py-32 px-4 sm:px-6 scroll-mt-20">
         <div className="mx-auto max-w-7xl">
-          <ScrollReveal>
-            <h2 className="text-4xl font-black sm:text-5xl text-warm">
-              {locale === "es" ? "Galería del dúo" : "Duo gallery"}
-            </h2>
-            <p className="mt-2 text-muted-foreground max-w-xl">
-              {locale === "es"
-                ? "Fotos y portadas — sin repetición. Toca para ampliar."
-                : "Photos and covers — each unique. Tap to enlarge."}
+          <header className="max-w-2xl mb-12">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-accent mb-3">
+              {locale === "es" ? "Imágenes" : "Images"}
             </p>
-          </ScrollReveal>
-          <div className="mt-10">
-            <GalleryLightbox locale={locale} />
-          </div>
+            <h2 className="text-4xl font-black sm:text-5xl text-warm tracking-tight">
+              {locale === "es" ? "Galería" : "Gallery"}
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              {locale === "es"
+                ? "Momentos visuales del legado. Sin repetir portadas ni videos inciertos."
+                : "Visual moments from the legacy. No repeated covers or uncertain videos."}
+            </p>
+          </header>
+          <GalleryLightbox locale={locale} />
         </div>
       </section>
 

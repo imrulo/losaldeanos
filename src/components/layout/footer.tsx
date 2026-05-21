@@ -11,7 +11,7 @@ export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="mt-auto border-t border-primary/20 bg-gradient-to-b from-card/40 to-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        <p className="mb-6 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground leading-relaxed">
+        <p className="mb-6 rounded-xl border border-primary/30 bg-primary/8 p-4 text-sm text-warm/90 leading-relaxed">
           {dict.disclaimer.body}
         </p>
 
@@ -25,19 +25,15 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="flex flex-wrap items-center gap-2 text-sm text-warm">
             <Heart className="h-4 w-4 text-cuban-red shrink-0" aria-hidden />
-            <span>
-              {locale === "es"
-                ? "Hecho con amor para la comunidad aldeana ❤️ por "
-                : "Made with love for the aldeana community ❤️ by "}
-              <Link
-                href="https://github.com/imrulo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent font-semibold hover:underline"
-              >
-                imrulo.eth
-              </Link>
-            </span>
+            <span>{dict.footer.madeWith}</span>
+            <Link
+              href="https://github.com/imrulo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent font-semibold hover:underline"
+            >
+              GitHub
+            </Link>
           </p>
           <span className="text-sm text-muted-foreground">
             {dict.footer.credits} · {year}

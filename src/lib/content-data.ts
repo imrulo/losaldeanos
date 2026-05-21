@@ -88,7 +88,13 @@ export function getTimelineAppendix(locale: Locale): TimelineEvent[] {
 }
 
 export function getAlbumsDuo(locale: Locale): Album[] {
-  return getAlbums(locale).filter((a) => a.artist === "los-aldeanos");
+  const seen = new Set<string>();
+  return getAlbums(locale).filter((a) => {
+    if (a.artist !== "los-aldeanos" || a.isAppendix) return false;
+    if (seen.has(a.slug)) return false;
+    seen.add(a.slug);
+    return true;
+  });
 }
 
 export function getAlbumsAppendix(locale: Locale): Album[] {

@@ -20,8 +20,15 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { TiltCard } from "@/components/museum/tilt-card";
-export function AlbumMuseumGrid({ locale }: { locale: Locale }) {
-  const duoAlbums = getAlbumsDuo(locale);
+
+export function AlbumMuseumGrid({
+  locale,
+  showIntro = true,
+}: {
+  locale: Locale;
+  showIntro?: boolean;
+}) {
+  const duoAlbums = useMemo(() => getAlbumsDuo(locale), [locale]);
   const appendixAlbums = getAlbumsAppendix(locale);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Album | null>(null);
@@ -38,103 +45,116 @@ export function AlbumMuseumGrid({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <div className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <p className="text-sm text-muted-foreground max-w-xl">
-          {locale === "es"
-            ? "Portadas y música del dúo (2003–2014). Todo el audio en Spotify oficial."
-            : "Duo covers and music (2003–2014). All audio on official Spotify."}
-        </p>
-        <Button asChild className="shrink-0 bg-primary hover:opacity-90 glow-blue">
+      {showIntro && (
+        <div className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-sm text-muted-foreground max-w-xl">
+            {locale === "es"
+              ? "Portadas del dúo (2003–2014). Audio en Spotify oficial."
+              : "Duo covers (2003–2014). Audio on official Spotify."}
+          </p>
+          <Button asChild className="shrink-0 bg-primary hover:opacity-90 glow-blue">
+            <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
+              <Music className="h-4 w-4 mr-2" />
+              Spotify — Los Aldeanos
+            </a>
+          </Button>
+        </div>
+      )}
+
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div className="relative max-w-md flex-1">
+          <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Input
+            placeholder={locale === "es" ? "Buscar álbum..." : "Search album..."}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="pl-9 border-primary/20"
+          />
+        </div>
+        <Button asChild variant="outline" className="border-primary/40 shrink-0">
           <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
             <Music className="h-4 w-4 mr-2" />
-            Spotify — Los Aldeanos
+            Spotify
           </a>
         </Button>
-      </div>
-
-      <div className="relative max-w-md mb-8">
-        <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-        <Input
-          placeholder={locale === "es" ? "Buscar álbum del dúo..." : "Search duo album..."}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="pl-9 border-primary/20"
-        />
       </div>
 
       <motion.div layout className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {filteredDuo.map((album) => (
-            <AlbumCard
-              key={album.slug}
-              album={album}
-              onOpen={() => setSelected(album)}
-            />
+            <AlbumCard key={album.slug} album={album} onOpen={() => setSelected(album)} />
           ))}
         </AnimatePresence>
       </motion.div>
 
-      <div className="mt-16 border-t border-border/60 pt-10">
+      <div className="mt-14 border-t border-border/50 pt-8">
         <button
           type="button"
           onClick={() => setShowAppendix(!showAppendix)}
-          className="text-sm font-medium text-muted-foreground hover:text-foreground"
+          className="text-sm font-medium text-muted-foreground hover:text-warm transition-colors"
         >
           {locale === "es"
             ? showAppendix
-              ? "▾ Ocultar apéndice (carreras solistas)"
-              : "▸ Apéndice breve: carreras solistas"
+              ? "▾ Ocultar nota sobre carreras solistas"
+              : "▸ Nota breve: carreras solistas (apéndice)"
             : showAppendix
-              ? "▾ Hide appendix (solo careers)"
-              : "▸ Brief appendix: solo careers"}
+              ? "▾ Hide solo careers note"
+              : "▸ Brief note: solo careers (appendix)"}
         </button>
         {showAppendix && (
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 opacity-70">
+          <div className="mt-4 max-w-xl text-sm text-muted-foreground leading-relaxed space-y-2">
             {appendixAlbums.map((album) => (
-              <div
-                key={album.slug}
-                className="rounded-xl border border-border/60 bg-card/40 p-4"
-              >
-                <h3 className="font-bold text-muted-foreground">{album.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{album.description}</p>
+              <p key={album.slug}>
+                <span className="text-warm font-semibold">{album.title}</span>
+                {" — "}
+                {album.description}
                 {album.youtube && (
-                  <a
-                    href={album.youtube}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-block text-xs text-primary hover:underline"
-                  >
-                    {locale === "es" ? "Canal →" : "Channel →"}
-                  </a>
+                  <>
+                    {" "}
+                    <a
+                      href={album.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      {locale === "es" ? "Enlace" : "Link"}
+                    </a>
+                  </>
                 )}
-              </div>
+              </p>
             ))}
           </div>
         )}
       </div>
 
       <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
-        <DialogContent className="max-w-lg border-primary/25">
+        <DialogContent className="max-w-lg border-primary/25 p-0 overflow-hidden">
           {selected && (
             <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl text-warm">{selected.title}</DialogTitle>
-                <p className="text-sm text-muted-foreground">{selected.description}</p>
-              </DialogHeader>
               <AlbumCoverArt album={selected} large />
-              <ul className="space-y-1 max-h-44 overflow-y-auto text-sm">
-                {selected.tracks.map((track) => (
-                  <li key={track} className="rounded-md px-3 py-1.5 hover:bg-muted/60">
-                    {track}
-                  </li>
-                ))}
-              </ul>
-              <Button asChild size="lg" className="w-full bg-accent text-accent-foreground font-black glow-warm">
-                <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
-                  <Music className="h-5 w-5 mr-2" />
-                  {locale === "es" ? "Escuchar en Spotify" : "Listen on Spotify"}
-                </a>
-              </Button>
+              <div className="p-6 space-y-4">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl text-warm">{selected.title}</DialogTitle>
+                  <p className="text-sm text-muted-foreground">{selected.description}</p>
+                </DialogHeader>
+                <ul className="space-y-1 max-h-44 overflow-y-auto text-sm border-t border-border/50 pt-4">
+                  {selected.tracks.map((track) => (
+                    <li key={track} className="px-2 py-1.5 text-muted-foreground">
+                      {track}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full bg-accent text-accent-foreground font-black glow-warm"
+                >
+                  <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
+                    <Music className="h-5 w-5 mr-2" />
+                    {locale === "es" ? "Escuchar en Spotify" : "Listen on Spotify"}
+                  </a>
+                </Button>
+              </div>
             </>
           )}
         </DialogContent>
@@ -148,8 +168,8 @@ function AlbumCoverArt({ album, large }: { album: Album; large?: boolean }) {
   return (
     <div
       className={cn(
-        "relative aspect-square rounded-xl overflow-hidden border border-primary/20 shadow-lg",
-        large ? "w-full" : "w-full",
+        "relative aspect-square overflow-hidden",
+        large ? "w-full" : "w-full rounded-t-2xl",
       )}
     >
       {src ? (
@@ -159,6 +179,7 @@ function AlbumCoverArt({ album, large }: { album: Album; large?: boolean }) {
           fill
           className="object-cover"
           sizes={large ? "(max-width: 512px) 100vw" : "(max-width: 768px) 50vw, 33vw"}
+          priority={album.slug === "censurados"}
         />
       ) : (
         <div className="absolute inset-0" style={{ backgroundColor: album.coverColor }} />
@@ -177,11 +198,11 @@ function AlbumCard({ album, onOpen }: { album: Album; onOpen: () => void }) {
         animate={{ opacity: 1, y: 0 }}
         onClick={onOpen}
         id={album.slug}
-        className="w-full text-left rounded-2xl border border-border/80 bg-card/80 overflow-hidden hover:border-primary/40 transition-colors group"
+        className="w-full text-left rounded-2xl border border-border/70 bg-card/60 overflow-hidden hover:border-primary/35 transition-all group"
       >
         <AlbumCoverArt album={album} />
         <div className="p-5">
-          <Badge variant="outline" className="border-accent/50 text-accent">
+          <Badge variant="outline" className="border-accent/40 text-accent text-xs">
             {album.year}
           </Badge>
           <h3 className="font-black text-xl mt-2 text-warm group-hover:text-accent transition-colors">

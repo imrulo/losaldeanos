@@ -1,19 +1,16 @@
 import { PageHeader } from "@/components/shared/page-header";
 import { StoryForm } from "@/components/comunidad/story-form";
 import { isValidLocale } from "@/lib/i18n";
+import { OFFICIAL_LINKS } from "@/lib/official-links";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/types/content";
 import { Button } from "@/components/ui/button";
 
 const links = [
-  {
-    label: "GitHub — imrulo",
-    href: "https://github.com/imrulo",
-  },
-  {
-    label: "YouTube — Al2 El Aldeano",
-    href: "https://www.youtube.com/c/al2elaldeano",
-  },
+  { label: "GitHub — imrulo", href: OFFICIAL_LINKS.github },
+  { label: "Spotify — Los Aldeanos", href: OFFICIAL_LINKS.spotifyDuo },
+  { label: "YouTube — Al2", href: OFFICIAL_LINKS.youtubeAl2 },
+  { label: "YouTube — El B", href: OFFICIAL_LINKS.youtubeElB },
 ];
 
 export default async function ComunidadPage({
@@ -53,8 +50,8 @@ export default async function ComunidadPage({
         </ul>
         <p className="mt-6 text-sm text-muted-foreground">
           {l === "es"
-            ? "Agrega enlaces a foros/Discord de fans en content/es/comunidad.json cuando estén disponibles."
-            : "Add fan forum/Discord links in content/en/comunidad.json when available."}
+            ? "Próximamente: enlaces a foros y espacios de la comunidad aldeana."
+            : "Coming soon: links to fan forums and aldeana community spaces."}
         </p>
       </section>
 

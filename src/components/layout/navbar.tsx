@@ -24,9 +24,9 @@ const navItems = [
 const paths: Record<(typeof navItems)[number], string> = {
   home: "",
   history: "/historia",
-  discography: "/discografia",
-  multimedia: "/multimedia",
-  legacy: "/legado",
+  discography: "#discografia",
+  multimedia: "#multimedia",
+  legacy: "#rap-es-guerra",
   about: "/sobre",
 };
 
@@ -50,7 +50,10 @@ export function Navbar({ locale }: { locale: Locale }) {
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {navItems.map((key) => {
             const href = `${base}${paths[key]}`;
-            const active = pathname === href || pathname.startsWith(`${href}/`);
+            const active =
+              paths[key].startsWith("#")
+                ? false
+                : pathname === href || pathname.startsWith(`${href}/`);
             return (
               <Link
                 key={key}

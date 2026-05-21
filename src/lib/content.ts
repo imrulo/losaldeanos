@@ -53,7 +53,7 @@ export function buildSearchIndex(locale: Locale): SearchDocument[] {
     {
       title: locale === "es" ? "Multimedia" : "Media",
       href: `${base}/multimedia`,
-      desc: "Videos y galería",
+      desc: "Galería fotográfica del dúo",
     },
     {
       title: locale === "es" ? "Letras" : "Lyrics",

@@ -16,37 +16,45 @@ export default async function SobrePage({
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <PageHeader
-        title={l === "es" ? "Sobre este sitio" : "About this site"}
+        title={l === "es" ? "Sobre este archivo" : "About this archive"}
+        subtitle={
+          l === "es"
+            ? "Un homenaje fan al dúo Los Aldeanos (2003–2014)."
+            : "A fan tribute to the Los Aldeanos duo (2003–2014)."
+        }
       />
 
-      <div className="rounded-lg border-2 border-primary/40 bg-primary/5 p-6">
+      <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-6">
         <h2 className="text-lg font-bold text-primary">{dict.disclaimer.title}</h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">
           {dict.disclaimer.body}
         </p>
       </div>
 
-      <div className="mt-12 space-y-6 text-muted-foreground">
+      <div className="mt-12 space-y-6 text-muted-foreground leading-relaxed">
         <p>
           {l === "es"
-            ? "Este archivo digital es un proyecto fan creado con Next.js 16, diseñado para preservar y celebrar el legado público de Los Aldeanos — Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) y Bian Oscar Rodríguez Galá (El B)."
-            : "This digital archive is a fan project built with Next.js 16, designed to preserve and celebrate the public legacy of Los Aldeanos — Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) and Bian Oscar Rodríguez Galá (El B)."}
+            ? "Este sitio es un archivo digital creado con respeto y cariño para la comunidad aldeana. Honra el legado público de Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) y Bian Oscar Rodríguez Galá (El B) cuando formaron Los Aldeanos."
+            : "This site is a digital archive created with respect and care for the aldeana community. It honors the public legacy of Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) and Bian Oscar Rodríguez Galá (El B) when they formed Los Aldeanos."}
         </p>
         <p>
           {l === "es"
-            ? "El contenido se gestiona mediante archivos MDX/JSON en /content — sin necesidad de tocar código para añadir entradas."
-            : "Content is managed via MDX/JSON files in /content — no code changes needed to add entries."}
+            ? "La música se enlaza a Spotify oficial. Las imágenes provienen de fuentes públicas documentadas. No mostramos videos embebidos si no son estables."
+            : "Music links to official Spotify. Images come from documented public sources. We do not embed videos unless they are stable."}
         </p>
-        <h3 className="text-foreground font-bold">
-          {l === "es" ? "Agregar contenido" : "Adding content"}
-        </h3>
-        <ul className="list-disc list-inside space-y-2 text-sm">
-          <li>timeline.json — eventos cronológicos</li>
-          <li>albums.json — discografía</li>
-          <li>lyrics.json + letras/[slug] — canciones</li>
-          <li>bios.json — biografías</li>
-          <li>mdx/legado.mdx — texto largo</li>
-        </ul>
+        <p className="text-sm">
+          {l === "es"
+            ? "Crédito del archivo: imrulo.eth · "
+            : "Archive credit: imrulo.eth · "}
+          <a
+            href="https://github.com/imrulo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent font-semibold hover:underline"
+          >
+            GitHub
+          </a>
+        </p>
       </div>
     </div>
   );
