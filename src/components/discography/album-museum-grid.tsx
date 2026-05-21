@@ -1,13 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Music, Play, Search } from "lucide-react";
+import { Music, Search } from "lucide-react";
 import Fuse from "fuse.js";
-import {
-  getAlbumsDuo,
-  getAlbumsAppendix,
-} from "@/lib/content-data";
+import { getAlbumsDuo, getAlbumsAppendix } from "@/lib/content-data";
+import { getAlbumCover } from "@/lib/album-covers";
 import { OFFICIAL_LINKS } from "@/lib/official-links";
 import type { Album, Locale } from "@/types/content";
 import { cn } from "@/lib/utils";
@@ -20,14 +19,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { VinylPlayer } from "@/components/discography/vinyl-player";
-
+import { TiltCard } from "@/components/museum/tilt-card";
 export function AlbumMuseumGrid({ locale }: { locale: Locale }) {
   const duoAlbums = getAlbumsDuo(locale);
   const appendixAlbums = getAlbumsAppendix(locale);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Album | null>(null);
-  const [playingTrack, setPlayingTrack] = useState<string | null>(null);
   const [showAppendix, setShowAppendix] = useState(false);
 
   const filteredDuo = useMemo(() => {
@@ -44,10 +41,10 @@ export function AlbumMuseumGrid({ locale }: { locale: Locale }) {
       <div className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <p className="text-sm text-muted-foreground max-w-xl">
           {locale === "es"
-            ? "Discografía del dúo (2003–2014). Escucha en Spotify oficial de Los Aldeanos."
-            : "Duo discography (2003–2014). Listen on official Los Aldeanos Spotify."}
+            ? "Portadas y música del dúo (2003–2014). Todo el audio en Spotify oficial."
+            : "Duo covers and music (2003–2014). All audio on official Spotify."}
         </p>
-        <Button asChild className="shrink-0 bg-primary hover:opacity-90">
+        <Button asChild className="shrink-0 bg-primary hover:opacity-90 glow-blue">
           <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
             <Music className="h-4 w-4 mr-2" />
             Spotify — Los Aldeanos
@@ -65,16 +62,13 @@ export function AlbumMuseumGrid({ locale }: { locale: Locale }) {
         />
       </div>
 
-      <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div layout className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {filteredDuo.map((album) => (
             <AlbumCard
               key={album.slug}
               album={album}
-              onOpen={() => {
-                setSelected(album);
-                setPlayingTrack(null);
-              }}
+              onOpen={() => setSelected(album)}
             />
           ))}
         </AnimatePresence>
@@ -95,82 +89,52 @@ export function AlbumMuseumGrid({ locale }: { locale: Locale }) {
               : "▸ Brief appendix: solo careers"}
         </button>
         {showAppendix && (
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 opacity-75">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 opacity-70">
             {appendixAlbums.map((album) => (
-              <AlbumCard
+              <div
                 key={album.slug}
-                album={album}
-                small
-                onOpen={() => {
-                  setSelected(album);
-                  setPlayingTrack(null);
-                }}
-              />
+                className="rounded-xl border border-border/60 bg-card/40 p-4"
+              >
+                <h3 className="font-bold text-muted-foreground">{album.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{album.description}</p>
+                {album.youtube && (
+                  <a
+                    href={album.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block text-xs text-primary hover:underline"
+                  >
+                    {locale === "es" ? "Canal →" : "Channel →"}
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         )}
       </div>
 
       <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
-        <DialogContent className="max-w-2xl border-primary/20">
+        <DialogContent className="max-w-lg border-primary/25">
           {selected && (
             <>
               <DialogHeader>
                 <DialogTitle className="text-2xl text-warm">{selected.title}</DialogTitle>
-                <p className="text-muted-foreground">{selected.description}</p>
+                <p className="text-sm text-muted-foreground">{selected.description}</p>
               </DialogHeader>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div
-                  className="aspect-square rounded-xl border border-border"
-                  style={{ backgroundColor: selected.coverColor }}
-                />
-                <div>
-                  <VinylPlayer spinning={!!playingTrack} />
-                  <ul className="mt-4 space-y-1 max-h-48 overflow-y-auto">
-                    {selected.tracks.map((track) => (
-                      <li key={track}>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setPlayingTrack(playingTrack === track ? null : track)
-                          }
-                          className={cn(
-                            "w-full text-left rounded-md px-3 py-2 text-sm flex gap-2 hover:bg-muted",
-                            playingTrack === track && "bg-primary/15 text-primary",
-                          )}
-                        >
-                          <Play className="h-3 w-3 mt-0.5 shrink-0" />
-                          {track}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              {playingTrack && (
-                <div className="aspect-video rounded-lg overflow-hidden border border-border">
-                  <iframe
-                    title={playingTrack}
-                    src={`https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(`Los Aldeanos ${selected.title} ${playingTrack}`)}`}
-                    className="h-full w-full"
-                    allowFullScreen
-                  />
-                </div>
-              )}
-              <div className="flex flex-wrap gap-2">
-                <Button asChild className="bg-primary">
-                  <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
-                    <Music className="h-3 w-3 mr-1" /> Spotify — Dúo
-                  </a>
-                </Button>
-                {selected.youtube && (
-                  <Button variant="outline" asChild>
-                    <a href={selected.youtube} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3 mr-1" /> YouTube
-                    </a>
-                  </Button>
-                )}
-              </div>
+              <AlbumCoverArt album={selected} large />
+              <ul className="space-y-1 max-h-44 overflow-y-auto text-sm">
+                {selected.tracks.map((track) => (
+                  <li key={track} className="rounded-md px-3 py-1.5 hover:bg-muted/60">
+                    {track}
+                  </li>
+                ))}
+              </ul>
+              <Button asChild size="lg" className="w-full bg-accent text-accent-foreground font-black glow-warm">
+                <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
+                  <Music className="h-5 w-5 mr-2" />
+                  {locale === "es" ? "Escuchar en Spotify" : "Listen on Spotify"}
+                </a>
+              </Button>
             </>
           )}
         </DialogContent>
@@ -179,50 +143,52 @@ export function AlbumMuseumGrid({ locale }: { locale: Locale }) {
   );
 }
 
-function AlbumCard({
-  album,
-  onOpen,
-  small,
-}: {
-  album: Album;
-  onOpen: () => void;
-  small?: boolean;
-}) {
+function AlbumCoverArt({ album, large }: { album: Album; large?: boolean }) {
+  const src = album.coverImage ?? getAlbumCover(album.slug);
   return (
-    <motion.button
-      type="button"
-      layout
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      onClick={onOpen}
-      id={album.slug}
+    <div
       className={cn(
-        "text-left rounded-xl border border-border bg-card overflow-hidden hover:border-primary/50 hover:glow-blue transition-all group",
-        small && "opacity-90",
+        "relative aspect-square rounded-xl overflow-hidden border border-primary/20 shadow-lg",
+        large ? "w-full" : "w-full",
       )}
     >
-      <div
-        className={cn(
-          "relative aspect-square",
-          !small && "group-hover:scale-[1.02] transition-transform",
-        )}
-        style={{ backgroundColor: album.coverColor }}
+      {src ? (
+        <Image
+          src={src}
+          alt={`Portada — ${album.title}`}
+          fill
+          className="object-cover"
+          sizes={large ? "(max-width: 512px) 100vw" : "(max-width: 768px) 50vw, 33vw"}
+        />
+      ) : (
+        <div className="absolute inset-0" style={{ backgroundColor: album.coverColor }} />
+      )}
+    </div>
+  );
+}
+
+function AlbumCard({ album, onOpen }: { album: Album; onOpen: () => void }) {
+  return (
+    <TiltCard>
+      <motion.button
+        type="button"
+        layout
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        onClick={onOpen}
+        id={album.slug}
+        className="w-full text-left rounded-2xl border border-border/80 bg-card/80 overflow-hidden hover:border-primary/40 transition-colors group"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground">
-            <Play className="h-7 w-7 ml-0.5" fill="currentColor" />
-          </span>
+        <AlbumCoverArt album={album} />
+        <div className="p-5">
+          <Badge variant="outline" className="border-accent/50 text-accent">
+            {album.year}
+          </Badge>
+          <h3 className="font-black text-xl mt-2 text-warm group-hover:text-accent transition-colors">
+            {album.title}
+          </h3>
         </div>
-      </div>
-      <div className={cn("p-4", small && "p-3")}>
-        <Badge variant="outline" className="border-accent/50 text-accent">
-          {album.year}
-        </Badge>
-        <h3 className={cn("font-bold mt-2", small ? "text-base" : "text-lg")}>
-          {album.title}
-        </h3>
-      </div>
-    </motion.button>
+      </motion.button>
+    </TiltCard>
   );
 }

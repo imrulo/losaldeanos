@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Clock, Music } from "lucide-react";
@@ -11,7 +10,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { getTimelineAlbumCover } from "@/lib/album-covers";
 import { DUO_HERO_IMAGE } from "@/lib/official-links";
+import { SpotifyEmbed } from "@/components/shared/spotify-embed";
 import { getTimelineAppendix, getTimelineDuo } from "@/lib/content-data";
 import { localePath } from "@/lib/i18n";
 import { OFFICIAL_LINKS, isDuoEraYear } from "@/lib/official-links";
@@ -242,22 +243,18 @@ export function TimelineInteractive({
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto border-primary/25 p-0">
             {active && (
-              <TimelineDetailModal
-                event={active}
-                locale={locale}
-                base={base}
-              />
+              <TimelineDetailModal event={active} locale={locale} base={base} />
             )}
           </DialogContent>
         </Dialog>
 
         {!fullPage && (
-          <Link
+          <a
             href={`${base}/historia`}
             className="mt-10 inline-flex text-sm font-bold text-primary hover:text-accent"
           >
             {locale === "es" ? "Historia completa →" : "Full history →"}
-          </Link>
+          </a>
         )}
       </div>
     </section>
@@ -339,39 +336,59 @@ function TimelineNode({
 function TimelineDetailModal({
   event,
   locale,
-  base,
 }: {
   event: TimelineEvent;
   locale: Locale;
   base: string;
 }) {
-  const searchQ = encodeURIComponent(`Los Aldeanos ${event.title} ${event.year}`);
+  const albumCover = getTimelineAlbumCover(event.year);
 
   return (
     <>
-      <div className="relative h-48 sm:h-56">
-        {!event.isAppendix ? (
-          <Image
-            src={DUO_HERO_IMAGE}
-            alt="Los Aldeanos — el dúo"
-            fill
-            className="object-cover"
-            sizes="(max-width: 672px) 100vw"
-          />
-        ) : (
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(145deg, ${event.coverColor ?? "#1a1814"} 0%, #0a0908 100%)`,
-            }}
-          />
+      <div className="relative h-52 sm:h-60 grid grid-cols-[1fr_auto] gap-0">
+        <div className="relative min-h-full">
+          {albumCover && !event.isAppendix ? (
+            <Image
+              src={albumCover}
+              alt={`${event.title} — portada`}
+              fill
+              className="object-cover"
+              sizes="400px"
+            />
+          ) : !event.isAppendix ? (
+            <Image
+              src={DUO_HERO_IMAGE}
+              alt="Los Aldeanos — el dúo"
+              fill
+              className="object-cover object-center"
+              sizes="400px"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(145deg, ${event.coverColor ?? "#1a1814"} 0%, #0a0908 100%)`,
+              }}
+            />
+          )}
+          <div className="absolute inset-0 cuban-flag-overlay opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
+        </div>
+        {!event.isAppendix && albumCover && (
+          <div className="relative w-24 sm:w-28 border-l border-primary/20">
+            <Image
+              src={DUO_HERO_IMAGE}
+              alt="Al2 y El B"
+              fill
+              className="object-cover object-top"
+              sizes="112px"
+            />
+          </div>
         )}
-        <div className="absolute inset-0 cuban-flag-overlay opacity-35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-        <span className="absolute bottom-4 left-5 text-6xl font-black text-warm/15">
+        <span className="absolute bottom-3 left-4 text-5xl font-black text-warm/20">
           {event.year}
         </span>
-        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+        <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
           {event.isAppendix
             ? locale === "es"
               ? "Apéndice"
@@ -392,41 +409,16 @@ function TimelineDetailModal({
           {event.longDescription ?? event.description}
         </p>
 
-        {!event.isAppendix && (
-          <>
-            <div className="rounded-xl overflow-hidden border border-border bg-black/40">
-              <iframe
-                title="Spotify Los Aldeanos"
-                src={OFFICIAL_LINKS.spotifyEmbed}
-                className="h-[152px] w-full"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              />
-            </div>
-            <div className="aspect-video rounded-xl overflow-hidden border border-border">
-              <iframe
-                title={`YouTube ${event.title}`}
-                src={`https://www.youtube.com/embed?listType=search&list=${searchQ}&mute=1`}
-                className="h-full w-full"
-                allowFullScreen
-              />
-            </div>
-          </>
-        )}
+        {!event.isAppendix && <SpotifyEmbed compact />}
 
-        <div className="flex flex-col gap-2">
-          <Button asChild className="font-bold bg-accent text-accent-foreground hover:opacity-90">
-            <Link href={`${base}/historia#${event.year}`}>
-              {locale === "es" ? "Ir al detalle" : "View detail"}
-            </Link>
-          </Button>
-          <Button variant="outline" asChild className="border-primary/40">
+        {!event.isAppendix && (
+          <Button asChild size="lg" className="w-full bg-accent text-accent-foreground font-black glow-warm">
             <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
-              <Music className="h-4 w-4 mr-1" />
-              Spotify — Los Aldeanos
+              <Music className="h-5 w-5 mr-2" />
+              {locale === "es" ? "Escuchar en Spotify" : "Listen on Spotify"}
             </a>
           </Button>
-        </div>
+        )}
       </div>
     </>
   );

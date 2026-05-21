@@ -5,10 +5,10 @@
     "artist": "los-aldeanos",
     "year": 2008,
     "coverColor": "#0f1a2e",
+    "coverImage": "/images/covers/censurados.jpg",
     "description": "Obra fundacional del dúo: crítica social, metáforas afiladas y el sello del rap conciencia cubano.",
     "tracks": ["Intro", "Censurados", "Mi Generación", "Rap es Guerra", "Sin Censura"],
-    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
-    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+Censurados"
+    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
   {
     "slug": "poesia-esposada",
@@ -16,10 +16,10 @@
     "artist": "los-aldeanos",
     "year": 2010,
     "coverColor": "#142a4a",
+    "coverImage": "/images/covers/poesia-esposada.jpg",
     "description": "Poética y denuncia entrelazadas; un puente entre el barrio y la reflexión filosófica.",
     "tracks": ["Poesía Esposada", "La Fila", "Underground", "Libertad"],
-    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
-    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+Poesia+Esposada"
+    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
   {
     "slug": "el-atropello",
@@ -27,10 +27,10 @@
     "artist": "los-aldeanos",
     "year": 2012,
     "coverColor": "#1a2040",
+    "coverImage": "/images/covers/el-atropello.jpg",
     "description": "Producción que consolida el legado del dúo y su mensaje de pensamiento libre.",
     "tracks": ["El Atropello", "Conciencia", "La Aldea", "Revolución del Pensamiento"],
-    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
-    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+El+Atropello"
+    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
   {
     "slug": "al2-solo",
@@ -40,7 +40,6 @@
     "coverColor": "#1a1814",
     "description": "Trayectoria en solitario (secundario). El archivo prioriza el dúo 2003–2014.",
     "tracks": ["Canal oficial Al2"],
-    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
     "youtube": "https://www.youtube.com/channel/UCYw09b1bNwXBickiw3k5aOw",
     "isAppendix": true
   },

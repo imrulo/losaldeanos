@@ -21,8 +21,8 @@ export default async function DiscografiaPage({
           title={l === "es" ? "Discografía" : "Discography"}
           subtitle={
             l === "es"
-              ? "Toca un álbum — vinilo, tracklist y preview en vivo."
-              : "Tap an album — vinyl, tracklist, and live preview."
+              ? "Portadas del dúo · tracklist y enlace directo a Spotify oficial."
+              : "Duo covers · tracklist and direct link to official Spotify."
           }
         />
       </ScrollReveal>

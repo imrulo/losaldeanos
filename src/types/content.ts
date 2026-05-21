@@ -21,12 +21,12 @@ export interface Album {
   artist: ArtistFilter;
   year: number;
   coverColor: string;
+  coverImage?: string;
   description: string;
   tracks: string[];
   spotify?: string;
   youtube?: string;
   apple?: string;
-  previewYoutubeId?: string;
   isAppendix?: boolean;
 }
 
@@ -62,6 +62,8 @@ export interface GalleryImage {
   color: string;
   aspect?: "square" | "tall" | "wide";
   src?: string;
+  /** Recorte visual cuando se reutiliza una foto base. */
+  crop?: "top" | "center" | "bottom";
 }
 
 export interface SearchDocument {

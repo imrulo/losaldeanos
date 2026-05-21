@@ -4,7 +4,6 @@ import Link from "next/link";
 import { HeroImmersive } from "@/components/home/hero-immersive";
 import { TimelineInteractive } from "@/components/home/timeline-interactive";
 import { AlbumMuseumGrid } from "@/components/discography/album-museum-grid";
-import { FeaturedVideos } from "@/components/home/featured-videos";
 import { GalleryLightbox } from "@/components/multimedia/gallery-lightbox";
 import { RapEsGuerraSection } from "@/components/home/rap-es-guerra-section";
 import { FlipQuotes } from "@/components/home/flip-quotes";
@@ -28,8 +27,8 @@ export function HomeExperience({ locale }: { locale: Locale }) {
             </h2>
             <p className="mt-2 text-muted-foreground max-w-xl">
               {locale === "es"
-                ? "Censurados, Poesía Esposada, El Atropello — el corazón del archivo."
-                : "Censurados, Poesía Esposada, El Atropello — the heart of the archive."}
+                ? "Portadas originales · Censurados, Poesía Esposada, El Atropello."
+                : "Original covers · Censurados, Poesía Esposada, El Atropello."}
             </p>
           </ScrollReveal>
           <div className="mt-10">
@@ -39,12 +38,10 @@ export function HomeExperience({ locale }: { locale: Locale }) {
             href={`${base}/discografia`}
             className="mt-8 inline-flex text-sm font-bold text-primary hover:text-accent"
           >
-            {locale === "es" ? "Ver discografía completa →" : "Full discography →"}
+            {locale === "es" ? "Página de discografía →" : "Discography page →"}
           </Link>
         </div>
       </section>
-
-      <FeaturedVideos locale={locale} />
 
       <section className="py-28 px-4 sm:px-6">
         <div className="mx-auto max-w-7xl">
@@ -54,8 +51,8 @@ export function HomeExperience({ locale }: { locale: Locale }) {
             </h2>
             <p className="mt-2 text-muted-foreground max-w-xl">
               {locale === "es"
-                ? "Al2 y El B juntos — toca para ampliar."
-                : "Al2 and El B together — tap to enlarge."}
+                ? "Fotos y portadas — sin repetición. Toca para ampliar."
+                : "Photos and covers — each unique. Tap to enlarge."}
             </p>
           </ScrollReveal>
           <div className="mt-10">

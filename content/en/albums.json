@@ -5,10 +5,10 @@
     "artist": "los-aldeanos",
     "year": 2008,
     "coverColor": "#0f1a2e",
+    "coverImage": "/images/covers/censurados.jpg",
     "description": "Foundational duo work: social critique, sharp metaphors, Cuban conscious rap.",
     "tracks": ["Intro", "Censurados", "Mi Generación", "Rap es Guerra", "Sin Censura"],
-    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
-    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+Censurados"
+    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
   {
     "slug": "poesia-esposada",
@@ -16,10 +16,10 @@
     "artist": "los-aldeanos",
     "year": 2010,
     "coverColor": "#142a4a",
+    "coverImage": "/images/covers/poesia-esposada.jpg",
     "description": "Poetry and protest intertwined.",
     "tracks": ["Poesía Esposada", "La Fila", "Underground", "Libertad"],
-    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
-    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+Poesia+Esposada"
+    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
   {
     "slug": "el-atropello",
@@ -27,10 +27,10 @@
     "artist": "los-aldeanos",
     "year": 2012,
     "coverColor": "#1a2040",
+    "coverImage": "/images/covers/el-atropello.jpg",
     "description": "Consolidates the duo's legacy and message of free thought.",
     "tracks": ["El Atropello", "Conciencia", "La Aldea", "Revolución del Pensamiento"],
-    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
-    "youtube": "https://www.youtube.com/results?search_query=Los+Aldeanos+El+Atropello"
+    "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
   {
     "slug": "al2-solo",

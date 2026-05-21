@@ -4,12 +4,18 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react";
-import { getGallery } from "@/lib/content-data";
+import { getDuoGallery } from "@/lib/gallery-images";
 import type { Locale } from "@/types/content";
 import { cn } from "@/lib/utils";
 
+const cropClass: Record<string, string> = {
+  top: "object-cover object-top",
+  center: "object-cover object-center",
+  bottom: "object-cover object-bottom",
+};
+
 export function GalleryLightbox({ locale }: { locale: Locale }) {
-  const images = getGallery(locale);
+  const images = getDuoGallery(locale);
   const [index, setIndex] = useState<number | null>(null);
   const [zoom, setZoom] = useState(1);
 
@@ -71,7 +77,7 @@ export function GalleryLightbox({ locale }: { locale: Locale }) {
               setZoom(1);
             }}
             className={cn(
-              "relative w-full break-inside-avoid rounded-xl overflow-hidden border border-border group hover:border-primary/60 transition-all",
+              "relative w-full break-inside-avoid rounded-xl overflow-hidden border border-border group hover:border-primary/50 transition-all",
               img.aspect === "tall" && "aspect-[3/4]",
               img.aspect === "wide" && "aspect-video",
               (!img.aspect || img.aspect === "square") && "aspect-square",
@@ -82,19 +88,22 @@ export function GalleryLightbox({ locale }: { locale: Locale }) {
                 src={img.src}
                 alt={img.caption}
                 fill
-                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                className={cn(
+                  "grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500",
+                  cropClass[img.crop ?? "center"],
+                )}
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
             ) : (
               <div
-                className="absolute inset-0 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                className="absolute inset-0"
                 style={{ backgroundColor: img.color }}
               />
             )}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/50 transition-opacity">
-              <ZoomIn className="h-10 w-10 text-white" />
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity">
+              <ZoomIn className="h-10 w-10 text-warm" />
             </div>
-            <span className="absolute bottom-0 left-0 right-0 p-4 text-sm font-semibold bg-gradient-to-t from-black to-transparent">
+            <span className="absolute bottom-0 left-0 right-0 p-4 text-sm font-semibold bg-gradient-to-t from-black/90 to-transparent text-left">
               {img.caption}
             </span>
           </motion.button>
@@ -190,7 +199,7 @@ export function GalleryLightbox({ locale }: { locale: Locale }) {
                 </div>
               ) : (
                 <div
-                  className="min-h-[50vh] flex flex-col items-center justify-center p-10"
+                  className="min-h-[50vh]"
                   style={{ backgroundColor: images[index].color }}
                 />
               )}

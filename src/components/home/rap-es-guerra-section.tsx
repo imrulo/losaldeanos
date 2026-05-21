@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Music, PlayCircle } from "lucide-react";
+import { Music } from "lucide-react";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
+import { SpotifyEmbed } from "@/components/shared/spotify-embed";
 import { OFFICIAL_LINKS, DUO_HERO_IMAGE } from "@/lib/official-links";
-import { FEATURED_VIDEOS } from "@/lib/featured-videos";
 import { localePath } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,6 @@ awakened conscience, truth on the microphone.`;
 
 export function RapEsGuerraSection({ locale }: { locale: Locale }) {
   const base = localePath(locale);
-  const video = FEATURED_VIDEOS[0];
   const excerpt = locale === "es" ? ANTHEM_EXCERPT_ES : ANTHEM_EXCERPT_EN;
 
   return (
@@ -41,7 +40,7 @@ export function RapEsGuerraSection({ locale }: { locale: Locale }) {
           <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">
             {locale === "es"
               ? "La frase que definió a una generación. Manifiesto del dúo Los Aldeanos (2003–2014)."
-              : "The line that defined a generation. Manifesto of the Los Aldeanos duo (2003–2014)."}
+              : "The line that defined a generation. Manifesto of Los Aldeanos (2003–2014)."}
           </p>
         </ScrollReveal>
 
@@ -52,7 +51,7 @@ export function RapEsGuerraSection({ locale }: { locale: Locale }) {
                 src={DUO_HERO_IMAGE}
                 alt="Los Aldeanos — Al2 y El B"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
@@ -69,7 +68,7 @@ export function RapEsGuerraSection({ locale }: { locale: Locale }) {
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild variant="accent">
                 <Link href={`${base}/letras/rap-es-guerra`}>
-                  {locale === "es" ? "Leer en el archivo" : "Read in archive"}
+                  {locale === "es" ? "Leer extracto" : "Read excerpt"}
                 </Link>
               </Button>
               <Button asChild variant="outline" className="border-primary/40">
@@ -82,24 +81,10 @@ export function RapEsGuerraSection({ locale }: { locale: Locale }) {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="aspect-video rounded-2xl overflow-hidden border border-primary/30 glow-warm">
-              <iframe
-                title={locale === "es" ? video.titleEs : video.titleEn}
-                src={video.embed}
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <a
-              href={video.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-accent hover:underline"
-            >
-              <PlayCircle className="h-4 w-4" />
-              {locale === "es" ? "Ver en YouTube" : "Watch on YouTube"}
-            </a>
+            <p className="text-sm font-semibold text-muted-foreground mb-3">
+              {locale === "es" ? "Escuchar al dúo" : "Listen to the duo"}
+            </p>
+            <SpotifyEmbed />
           </ScrollReveal>
         </div>
       </div>
