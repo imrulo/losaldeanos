@@ -1,4 +1,5 @@
 import { Music, PlayCircle } from "lucide-react";
+import { ARTIST_NAMES } from "@/lib/artist-names";
 import { OFFICIAL_LINKS } from "@/lib/official-links";
 import type { Locale } from "@/types/content";
 
@@ -22,14 +23,14 @@ export function StreamingLinks({
     },
     {
       href: OFFICIAL_LINKS.youtubeAl2,
-      label: isEs ? "YouTube — Al2" : "YouTube — Al2",
+      label: `YouTube — ${ARTIST_NAMES.al2.stageLong}`,
       icon: PlayCircle,
       className: "border-border/70 bg-card/40 text-warm hover:border-accent/40",
       iconClass: "text-[#FF0000]",
     },
     {
       href: OFFICIAL_LINKS.youtubeElB,
-      label: isEs ? "YouTube — El B" : "YouTube — El B",
+      label: `YouTube — ${ARTIST_NAMES.elB.stage}`,
       icon: PlayCircle,
       className: "border-border/70 bg-card/40 text-warm hover:border-accent/40",
       iconClass: "text-[#FF0000]",

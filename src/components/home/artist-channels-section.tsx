@@ -2,24 +2,27 @@
 
 import { ExternalLink, PlayCircle } from "lucide-react";
 import { getBios } from "@/lib/content-data";
+import { ARTIST_NAMES } from "@/lib/artist-names";
 import { OFFICIAL_LINKS } from "@/lib/official-links";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
 import type { Locale } from "@/types/content";
 
-const CHANNELS = [
+const ARTISTS = [
   {
-    id: "al2",
+    key: "al2" as const,
     youtube: OFFICIAL_LINKS.youtubeAl2,
-    accent: "from-primary/30 to-card/80",
-    initial: "A2",
+    gradient: "from-[#002F6C]/40 via-card/60 to-background",
+    borderHover: "hover:border-primary-bright/50",
+    badgeClass: "border-primary-bright/40 text-primary-bright bg-primary/15",
   },
   {
-    id: "el-b",
+    key: "elB" as const,
     youtube: OFFICIAL_LINKS.youtubeElB,
-    accent: "from-accent/20 to-card/80",
-    initial: "EB",
+    gradient: "from-accent/15 via-card/60 to-background",
+    borderHover: "hover:border-accent/50",
+    badgeClass: "border-accent/40 text-accent bg-accent/10",
   },
-] as const;
+];
 
 export function ArtistChannelsSection({ locale }: { locale: Locale }) {
   const bios = getBios(locale);
@@ -40,38 +43,37 @@ export function ArtistChannelsSection({ locale }: { locale: Locale }) {
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
             {isEs
-              ? "Tras 2014, Al2 y El B siguieron por caminos propios. Este archivo prioriza la era del dúo, pero honra sus canales oficiales por separado."
-              : "After 2014, Al2 and El B continued on their own paths. This archive prioritizes the duo era but honors their separate official channels."}
+              ? `Tras 2014, ${ARTIST_NAMES.al2.stage} y ${ARTIST_NAMES.elB.stage} siguieron por caminos propios. Sus nombres de artista — no abreviaturas — son parte del lenguaje aldeano.`
+              : `After 2014, ${ARTIST_NAMES.al2.stage} and ${ARTIST_NAMES.elB.stage} continued on separate paths. Their artist names are part of the aldeana vocabulary.`}
           </p>
         </ScrollReveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {bios.map((bio, i) => {
-            const channel = CHANNELS[i];
+            const meta = ARTISTS[i];
+            const names = meta.key === "al2" ? ARTIST_NAMES.al2 : ARTIST_NAMES.elB;
+
             return (
-              <ScrollReveal key={bio.name} delay={i * 0.08}>
+              <ScrollReveal key={names.stage} delay={i * 0.08}>
                 <article
-                  className={`group relative overflow-hidden rounded-2xl border border-border/60 bg-gradient-to-br ${channel.accent} p-6 sm:p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(230,184,0,0.08)]`}
+                  className={`rounded-2xl border border-border/60 bg-gradient-to-br ${meta.gradient} p-6 sm:p-8 transition-all duration-300 ${meta.borderHover}`}
                 >
                   <div className="flex items-start gap-4">
                     <div
-                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-accent/30 bg-background/60 text-lg font-black text-accent"
-                      aria-hidden
+                      className={`flex min-w-[4.5rem] shrink-0 items-center justify-center rounded-xl border px-3 py-2 font-black text-xl font-display ${meta.badgeClass}`}
                     >
-                      {channel.initial}
+                      {names.stage}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-2xl font-black text-warm font-display tracking-tight">
-                        {bio.name}
+                      <h3 className="text-xl sm:text-2xl font-black text-warm font-display leading-tight">
+                        {"stageLong" in names ? names.stageLong : names.stage}
                       </h3>
-                      <p className="mt-1 text-sm text-primary-bright font-medium">
-                        {bio.aka}
-                      </p>
+                      <p className="mt-1 text-sm text-warm/80">{names.full}</p>
                       <p className="mt-1 text-xs text-muted-foreground">{bio.born}</p>
                     </div>
                   </div>
 
-                  <p className="mt-5 text-sm sm:text-base text-warm/85 leading-relaxed">
+                  <p className="mt-5 text-sm sm:text-base text-warm/90 leading-relaxed">
                     {bio.summary}
                   </p>
 
@@ -79,7 +81,7 @@ export function ArtistChannelsSection({ locale }: { locale: Locale }) {
                     {bio.highlights.slice(0, 2).map((h) => (
                       <li
                         key={h}
-                        className="rounded-full border border-border/50 bg-background/40 px-3 py-1 text-xs text-muted-foreground"
+                        className="rounded-full border border-border/50 bg-background/50 px-3 py-1 text-xs text-muted-foreground"
                       >
                         {h.replace(/youtube\.com.*/i, "").trim() || h}
                       </li>
@@ -87,16 +89,14 @@ export function ArtistChannelsSection({ locale }: { locale: Locale }) {
                   </ul>
 
                   <a
-                    href={channel.youtube}
+                    href={meta.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#FF0000] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#FF0000]/20 hover:bg-[#e60000] transition-colors"
+                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#FF0000] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#FF0000]/20 hover:bg-[#e60000] transition-colors"
                   >
-                    <PlayCircle className="h-5 w-5" aria-hidden />
-                    {isEs
-                      ? `YouTube — ${bio.name}`
-                      : `YouTube — ${bio.name}`}
-                    <ExternalLink className="h-3.5 w-3.5 opacity-80" aria-hidden />
+                    <PlayCircle className="h-5 w-5 shrink-0" aria-hidden />
+                    {`YouTube — ${"stageLong" in names ? names.stageLong : names.stage}`}
+                    <ExternalLink className="h-3.5 w-3.5 opacity-80 shrink-0" aria-hidden />
                   </a>
                 </article>
               </ScrollReveal>
