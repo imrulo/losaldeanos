@@ -118,7 +118,7 @@ body {
 }
 
 .anthem-glow {
-  color: var(--warm);
+  color: var(--foreground);
   text-shadow:
     0 0 32px color-mix(in srgb, var(--accent) 45%, transparent),
     0 0 64px color-mix(in srgb, var(--primary) 25%, transparent);
@@ -141,6 +141,7 @@ body {
 .light {
   --background: #f5f0e6;
   --foreground: #0a0908;
+  --warm: #0a0908;
   --card: #ffffff;
   --card-foreground: #0a0908;
   --secondary: #ebe6dc;

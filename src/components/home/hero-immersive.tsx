@@ -18,28 +18,31 @@ function HeroContent({
   locale,
   intro,
   onCtaClick,
+  align = "center",
 }: {
   locale: Locale;
   intro: string;
   onCtaClick: () => void;
+  align?: "center" | "left";
 }) {
   const dict = getDictionary(locale);
+  const isLeft = align === "left";
 
   return (
-    <>
+    <div className={isLeft ? "text-left" : "text-center lg:text-left"}>
       <span className="text-xs font-bold uppercase tracking-[0.35em] text-accent">
         {dict.hero.tagline}
       </span>
 
-      <h1 className="mt-5 text-[clamp(2.75rem,8vw,4.25rem)] font-black leading-[1.05] text-warm tracking-tight font-display">
+      <h1 className="mt-5 text-[clamp(2.25rem,7vw,4.25rem)] font-black leading-[1.05] text-foreground tracking-tight font-display">
         {dict.hero.title}
       </h1>
 
-      <p className="mt-4 text-[clamp(1.35rem,4.5vw,2.5rem)] font-black anthem-glow font-display">
+      <p className="mt-4 text-[clamp(1.25rem,4vw,2.5rem)] font-black anthem-glow font-display">
         {dict.hero.anthem}
       </p>
 
-      <p className="mt-6 text-base sm:text-lg lg:text-[1.125rem] xl:text-xl text-warm leading-relaxed lg:leading-[1.75] max-w-xl">
+      <p className="mt-6 text-base sm:text-lg lg:text-[1.125rem] xl:text-xl text-foreground leading-relaxed lg:leading-[1.75] max-w-xl mx-auto lg:mx-0">
         {intro}
       </p>
 
@@ -49,7 +52,11 @@ function HeroContent({
           : "Digital Archive · Duo era 2003–2014"}
       </p>
 
-      <div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
+      <div
+        className={`mt-8 flex flex-col sm:flex-row gap-3 ${
+          isLeft ? "justify-start" : "justify-center lg:justify-start"
+        }`}
+      >
         <Link
           href="#quienes-fueron"
           onClick={onCtaClick}
@@ -61,7 +68,7 @@ function HeroContent({
           href={OFFICIAL_LINKS.spotifyDuo}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-12 sm:h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#1DB954] bg-[#1DB954]/15 px-6 sm:px-8 text-base font-bold text-warm hover:bg-[#1DB954]/25 transition-all"
+          className="inline-flex h-12 sm:h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#1DB954] bg-[#1DB954]/15 px-6 sm:px-8 text-base font-bold text-foreground hover:bg-[#1DB954]/25 transition-all"
         >
           <Music className="h-5 w-5 text-[#1DB954]" />
           Spotify
@@ -70,12 +77,14 @@ function HeroContent({
 
       <a
         href="#quienes-fueron"
-        className="mt-10 lg:mt-12 inline-flex flex-col items-center lg:items-start gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+        className={`mt-10 lg:mt-12 inline-flex flex-col gap-2 text-sm text-muted-foreground hover:text-accent transition-colors ${
+          isLeft ? "items-start" : "items-center lg:items-start"
+        }`}
       >
         {dict.hero.scroll}
         <ChevronDown className="h-5 w-5 animate-bounce text-accent" />
       </a>
-    </>
+    </div>
   );
 }
 
@@ -89,10 +98,13 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
   }, [sound]);
 
   return (
-    <>
-      {/* Móvil: foto de fondo + texto abajo (como te gusta) */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden lg:hidden">
-        <div className="absolute inset-0 -z-10">
+    <section className="border-b border-border/50 bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-10 lg:pt-28 lg:pb-14">
+        <HeroContent locale={locale} intro={intro} onCtaClick={onCtaClick} align="left" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16">
+        <div className="relative aspect-[16/9] sm:aspect-[21/9] max-h-[min(52vh,520px)] w-full overflow-hidden rounded-xl border border-border/60 bg-[#0a0908]">
           {imgOk ? (
             <Image
               src={DUO_HERO_IMAGE}
@@ -100,7 +112,7 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
               fill
               priority
               className="object-cover object-[center_25%]"
-              sizes="100vw"
+              sizes="(max-width: 1024px) 100vw, 1280px"
               onError={() => setImgOk(false)}
             />
           ) : (
@@ -109,45 +121,15 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
               aria-hidden
             />
           )}
-          <div className="absolute inset-0 cuban-flag-overlay opacity-45" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background from-[38%] via-background/90 to-background/30" />
-        </div>
-
-        <div className="relative z-10 w-full px-4 pb-16 pt-28 text-center">
-          <HeroContent locale={locale} intro={intro} onCtaClick={onCtaClick} />
+          <div className="absolute inset-0 cuban-flag-overlay opacity-30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
           {imgOk && (
-            <p className="mt-6 text-[10px] text-muted-foreground/80">{DUO_HERO_ATTRIBUTION}</p>
+            <p className="absolute bottom-3 right-3 left-3 sm:left-auto text-[10px] text-muted-foreground text-right">
+              {DUO_HERO_ATTRIBUTION}
+            </p>
           )}
         </div>
-      </section>
-
-      {/* Escritorio: panel de texto 100% opaco — siempre visible */}
-      <section className="hidden lg:grid lg:grid-cols-[minmax(420px,1fr)_1.15fr] min-h-[calc(100svh-4rem)] bg-background border-b border-border/50">
-        <div className="relative z-20 flex flex-col justify-center bg-background px-12 xl:px-20 py-16 text-left">
-          <HeroContent locale={locale} intro={intro} onCtaClick={onCtaClick} />
-        </div>
-
-        <div className="relative min-h-[520px] bg-[#0a0908]">
-          {imgOk ? (
-            <Image
-              src={DUO_HERO_IMAGE}
-              alt="Al2 y El B — Los Aldeanos, el dúo juntos"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="55vw"
-              onError={() => setImgOk(false)}
-            />
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-[#002F6C] to-[#0a0908]" />
-          )}
-          <div className="absolute inset-0 cuban-flag-overlay opacity-20 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-l from-background via-transparent to-transparent pointer-events-none" />
-          <p className="absolute bottom-4 right-4 text-[10px] text-muted-foreground/70 max-w-xs text-right">
-            {DUO_HERO_ATTRIBUTION}
-          </p>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

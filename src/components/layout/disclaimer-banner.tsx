@@ -7,7 +7,7 @@ export function DisclaimerBanner({ locale }: { locale: Locale }) {
   return (
     <div
       role="note"
-      className="border-b border-primary/30 bg-primary/15 px-4 py-3 text-center text-xs sm:text-sm font-medium text-warm/95"
+      className="border-b border-primary/30 bg-primary/15 px-4 py-3 text-center text-xs sm:text-sm font-medium text-foreground"
     >
       <span className="inline-flex flex-wrap items-center gap-2 justify-center max-w-4xl mx-auto">
         <AlertTriangle className="h-4 w-4 text-accent shrink-0" aria-hidden />
