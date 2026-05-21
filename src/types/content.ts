@@ -23,6 +23,7 @@ export interface Album {
   coverColor: string;
   coverImage?: string;
   description: string;
+  impact?: string;
   tracks: string[];
   spotify?: string;
   youtube?: string;

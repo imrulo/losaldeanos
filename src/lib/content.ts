@@ -52,7 +52,7 @@ export function buildSearchIndex(locale: Locale): SearchDocument[] {
     },
     {
       title: locale === "es" ? "Multimedia" : "Media",
-      href: `${base}/multimedia`,
+      href: `${base}#legado-vivo`,
       desc: "Galería fotográfica del dúo",
     },
     {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,9 +8,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["700", "800", "900"],
+});
+
 export const metadata: Metadata = {
-  title: "Los Aldeanos — Archivo Digital",
-  description: "Archivo digital y museo virtual fan de Los Aldeanos",
+  title: "Los Aldeanos — Archivo Digital del Legado",
+  description:
+    "Referencia sobre Los Aldeanos: historia del dúo, El rap es guerra, discografía y legado del rap cubano (2003–2014).",
 };
 
 export default function RootLayout({
@@ -19,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning className={inter.variable}>
-      <body className="min-h-screen flex flex-col antialiased">{children}</body>
+    <html lang="es" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
+      <body className="min-h-screen flex flex-col antialiased font-sans">{children}</body>
     </html>
   );
 }

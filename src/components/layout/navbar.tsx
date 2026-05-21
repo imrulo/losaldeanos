@@ -16,17 +16,15 @@ const navItems = [
   "home",
   "history",
   "discography",
-  "multimedia",
   "legacy",
   "about",
 ] as const;
 
 const paths: Record<(typeof navItems)[number], string> = {
   home: "",
-  history: "/historia",
+  history: "#quienes-fueron",
   discography: "#discografia",
-  multimedia: "#multimedia",
-  legacy: "#rap-es-guerra",
+  legacy: "#legado-vivo",
   about: "/sobre",
 };
 

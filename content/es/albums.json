@@ -6,7 +6,8 @@
     "year": 2008,
     "coverColor": "#0f1a2e",
     "coverImage": "/images/covers/censurados.jpg",
-    "description": "Obra fundacional del dúo: crítica social, metáforas afiladas y el sello del rap conciencia cubano.",
+    "description": "El manifiesto fundacional del rap conciencia cubano en la voz del dúo.",
+    "impact": "Censurados marcó un antes y un después: crítica social sin concesiones, metáforas que cortaban la complacencia y un lenguaje que millones de jóvenes adoptaron como espejo. Aquí nació la idea de que el rap podía ser poesía de denuncia y orgullo al mismo tiempo.",
     "tracks": ["Intro", "Censurados", "Mi Generación", "Rap es Guerra", "Sin Censura"],
     "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
@@ -17,7 +18,8 @@
     "year": 2010,
     "coverColor": "#142a4a",
     "coverImage": "/images/covers/poesia-esposada.jpg",
-    "description": "Poética y denuncia entrelazadas; un puente entre el barrio y la reflexión filosófica.",
+    "description": "Poética y denuncia entrelazadas en la madurez del dúo.",
+    "impact": "Poesía Esposada elevó el underground a literatura urbana. El dúo demostró que la ternura y la rabia pueden convivir en el mismo verso, y que la libertad de pensar es también un tema de amor, barrio y memoria colectiva.",
     "tracks": ["Poesía Esposada", "La Fila", "Underground", "Libertad"],
     "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
@@ -28,7 +30,8 @@
     "year": 2012,
     "coverColor": "#1a2040",
     "coverImage": "/images/covers/el-atropello.jpg",
-    "description": "Producción que consolida el legado del dúo y su mensaje de pensamiento libre.",
+    "description": "La obra que consolidó el mensaje de pensamiento independiente del dúo.",
+    "impact": "El Atropello sonó a volumen alto en toda una generación: mensajes de conciencia, juventud y dignidad que trascendieron la isla. Es el cierre creativo más poderoso de la etapa conjunta — un disco que aún se escucha como llamada a no renunciar a la palabra libre.",
     "tracks": ["El Atropello", "Conciencia", "La Aldea", "Revolución del Pensamiento"],
     "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
@@ -38,7 +41,8 @@
     "artist": "al2",
     "year": 2016,
     "coverColor": "#1a1814",
-    "description": "Trayectoria en solitario (secundario). El archivo prioriza el dúo 2003–2014.",
+    "description": "Trayectoria en solitario (secundario).",
+    "impact": "Fuera del foco principal del archivo.",
     "tracks": ["Canal oficial Al2"],
     "youtube": "https://www.youtube.com/channel/UCYw09b1bNwXBickiw3k5aOw",
     "isAppendix": true
@@ -50,6 +54,7 @@
     "year": 2016,
     "coverColor": "#181614",
     "description": "Proyectos individuales (secundario).",
+    "impact": "Fuera del foco principal del archivo.",
     "tracks": ["Selección pública"],
     "youtube": "https://www.youtube.com/user/elboficial",
     "isAppendix": true

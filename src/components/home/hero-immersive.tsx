@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Music } from "lucide-react";
-import { useCallback, useRef } from "react";
-import { getDictionary, localePath } from "@/lib/i18n";
+import { useCallback, useRef, useState } from "react";
+import { getDictionary } from "@/lib/i18n";
 import {
   DUO_HERO_ATTRIBUTION,
   DUO_HERO_IMAGE,
@@ -13,10 +13,12 @@ import {
 } from "@/lib/official-links";
 import type { Locale } from "@/types/content";
 import { useMicroSound } from "@/hooks/use-micro-sound";
-import { StreamingLinks } from "@/components/layout/streaming-links";
+import { getArchiveCopy } from "@/lib/archive-copy";
 
 export function HeroImmersive({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
+  const archive = getArchiveCopy(locale);
+  const [imgOk, setImgOk] = useState(true);
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -37,22 +39,34 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
       className="relative min-h-[100svh] flex items-end overflow-hidden"
     >
       <motion.div style={{ y: bgY }} className="absolute inset-0 -z-10">
-        <Image
-          src={DUO_HERO_IMAGE}
-          alt="Al2 y El B — Los Aldeanos, el dúo juntos"
-          fill
-          priority
-          className="object-cover object-center scale-105"
-          sizes="100vw"
-        />
+        {imgOk ? (
+          <Image
+            src={DUO_HERO_IMAGE}
+            alt="Al2 y El B — Los Aldeanos, el dúo juntos"
+            fill
+            priority
+            className="object-cover object-center scale-105"
+            sizes="100vw"
+            onError={() => setImgOk(false)}
+          />
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, #002F6C 0%, #0a0908 45%, #1a1208 100%)",
+            }}
+            aria-hidden
+          />
+        )}
         <div className="absolute inset-0 cuban-flag-overlay opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-transparent to-accent/8" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/10" />
       </motion.div>
 
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 w-full mx-auto max-w-5xl px-4 pb-20 pt-28 sm:pt-36 text-center"
+        className="relative z-10 w-full mx-auto max-w-4xl px-4 pb-20 pt-28 sm:pt-36 text-center"
       >
         <motion.span
           initial={{ opacity: 0 }}
@@ -66,7 +80,7 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08, duration: 0.7 }}
-          className="mt-6 text-[clamp(3rem,10vw,5.5rem)] font-black leading-none text-warm tracking-tight"
+          className="mt-6 text-[clamp(3rem,10vw,5.5rem)] font-black leading-none text-warm tracking-tight font-display"
         >
           {dict.hero.title}
         </motion.h1>
@@ -75,18 +89,27 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-5 text-[clamp(1.5rem,5vw,2.75rem)] font-black anthem-glow scratch-hover relative inline-block"
+          className="mt-5 text-[clamp(1.5rem,5vw,2.75rem)] font-black anthem-glow relative inline-block font-display"
         >
           {dict.hero.anthem}
         </motion.p>
 
         <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mt-8 mx-auto max-w-2xl text-base sm:text-xl text-warm/90 leading-relaxed"
+        >
+          {archive.hero.intro}
+        </motion.p>
+
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.32 }}
-          className="mt-4 text-sm text-muted-foreground"
+          transition={{ delay: 0.36 }}
+          className="mt-4 text-sm font-medium text-muted-foreground"
         >
-          {locale === "es" ? "Era del dúo · 2003–2014" : "Duo era · 2003–2014"}
+          {archive.hero.era}
         </motion.p>
 
         <motion.div
@@ -97,7 +120,7 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
         >
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="#timeline-museum"
+              href="#quienes-fueron"
               onClick={onCtaClick}
               className="cta-pulse inline-flex h-14 min-w-[240px] items-center justify-center rounded-lg bg-accent px-10 text-lg font-black text-accent-foreground glow-warm"
             >
@@ -109,25 +132,16 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
               href={OFFICIAL_LINKS.spotifyDuo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-14 items-center justify-center gap-2 rounded-lg border-2 border-primary bg-primary/25 px-8 text-base font-bold text-warm hover:bg-primary/35 glow-blue transition-all"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#1DB954] bg-[#1DB954]/20 px-8 text-base font-bold text-warm hover:bg-[#1DB954]/30 transition-all"
             >
-              <Music className="h-5 w-5" />
+              <Music className="h-5 w-5 text-[#1DB954]" />
               Spotify
             </a>
           </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.52 }}
-          className="mt-8"
-        >
-          <StreamingLinks locale={locale} compact />
-        </motion.div>
-
         <motion.a
-          href="#timeline-museum"
+          href="#quienes-fueron"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.62 }}
@@ -137,9 +151,11 @@ export function HeroImmersive({ locale }: { locale: Locale }) {
           <ChevronDown className="h-6 w-6 animate-bounce text-primary" />
         </motion.a>
 
-        <p className="mt-8 text-[10px] text-muted-foreground/70 max-w-md mx-auto">
-          {DUO_HERO_ATTRIBUTION}
-        </p>
+        {imgOk && (
+          <p className="mt-8 text-[10px] text-muted-foreground/70 max-w-md mx-auto">
+            {DUO_HERO_ATTRIBUTION}
+          </p>
+        )}
       </motion.div>
     </section>
   );

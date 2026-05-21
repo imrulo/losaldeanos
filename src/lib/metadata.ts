@@ -9,20 +9,26 @@ export function siteMetadata(locale: Locale): Metadata {
     metadataBase: new URL(siteUrl),
     title: {
       default: isEs
-        ? "Los Aldeanos — Archivo Digital y Museo Virtual"
-        : "Los Aldeanos — Digital Archive & Virtual Museum",
+        ? "Los Aldeanos — Quiénes fueron, historia y legado | El rap es guerra"
+        : "Los Aldeanos — Who they were, history & legacy | El rap es guerra",
       template: "%s | Los Aldeanos Archivo",
     },
     description: isEs
-      ? "Archivo digital fan no oficial dedicado al legado de Los Aldeanos: historia, discografía, letras, multimedia e impacto del rap conciencia cubano."
-      : "Unofficial fan digital archive dedicated to the legacy of Los Aldeanos: history, discography, lyrics, media, and Cuban conscious rap impact.",
+      ? "Archivo digital del legado de Los Aldeanos (2003–2014): historia del dúo, El rap es guerra, discografía, libertad y rap cubano. Referencia para fans y para quien descubre su impacto cultural."
+      : "Digital archive of Los Aldeanos legacy (2003–2014): duo history, El rap es guerra, discography, freedom, and Cuban rap. A reference for fans and newcomers alike.",
     keywords: [
       "Los Aldeanos",
+      "Los Aldeanos legado",
+      "El rap es guerra",
+      "rap cubano libertad",
       "Al2 El Aldeano",
       "El B",
       "rap cubano",
       "archivo digital",
-      "legado",
+      "rap conciencia",
+      "Censurados",
+      "dúo cubano",
+      "11J Cuba",
     ],
     authors: [{ name: "imrulo.eth", url: "https://github.com/imrulo" }],
     openGraph: {
@@ -31,18 +37,18 @@ export function siteMetadata(locale: Locale): Metadata {
       url: `${siteUrl}/${locale}`,
       siteName: "Los Aldeanos Archivo",
       title: isEs
-        ? "Archivo Digital · Legado Vivo"
-        : "Digital Archive · Living Legacy",
+        ? "Los Aldeanos — El rap es guerra · Legado Vivo"
+        : "Los Aldeanos — El rap es guerra · Living Legacy",
       description: isEs
-        ? "Museo virtual de fans para la comunidad aldeana."
-        : "Fan virtual museum for the aldeana community.",
+        ? "Referencia textual y musical del dúo que despertó conciencias con rimas de verdad y libertad."
+        : "Textual and musical reference for the duo that awakened conscience through truth and freedom.",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Los Aldeanos Archivo",
+      title: isEs ? "Los Aldeanos — Archivo Digital" : "Los Aldeanos — Digital Archive",
       description: isEs
-        ? "Legado del rap conciencia cubano."
-        : "Legacy of Cuban conscious rap.",
+        ? "Legado del dúo cubano 2003–2014. El rap es guerra."
+        : "Cuban duo legacy 2003–2014. El rap es guerra.",
     },
     alternates: {
       canonical: `${siteUrl}/${locale}`,
@@ -63,12 +69,12 @@ export function jsonLdMusicGroup(locale: Locale) {
     name: "Los Aldeanos",
     alternateName: ["Al2 El Aldeano", "El B"],
     description: isEs
-      ? "Dúo cubano de rap formado por Al2 El Aldeano y El B."
-      : "Cuban rap duo formed by Al2 El Aldeano and El B.",
-    genre: ["Hip Hop", "Cuban Rap"],
+      ? "Dúo cubano de rap (2003–2014). Archivo digital del legado: El rap es guerra, crítica social y pensamiento libre."
+      : "Cuban rap duo (2003–2014). Digital archive of the legacy: El rap es guerra, social critique, and free thought.",
+    genre: ["Hip Hop", "Cuban Rap", "Conscious Rap"],
     url: `${siteUrl}/${locale}`,
     sameAs: [
-      "https://www.youtube.com/c/al2elaldeano",
+      "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY",
       "https://github.com/imrulo",
     ],
   };

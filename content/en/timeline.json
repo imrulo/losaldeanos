@@ -1,9 +1,9 @@
 [
   {
     "year": 2003,
-    "title": "First show in 5 Palmas",
-    "description": "Where it all began — the block, the mic, the truth.",
-    "longDescription": "Los Aldeanos debut in 5 Palmas. Two voices, one neighborhood, a generation that found its mirror in rap. La Aldea is born.",
+    "title": "First microphone at 5 Palmas",
+    "description": "The neighborhood as stage, truth as the starting point.",
+    "longDescription": "In La Lisa, two voices find rap as their own language. It is not spectacle: it is necessity. From this origin La Aldea is born — a community that would grow around the duo and those who recognized themselves in their lyrics.",
     "highlight": true,
     "artist": "los-aldeanos",
     "isDuoEra": true,
@@ -11,9 +11,9 @@
   },
   {
     "year": 2005,
-    "title": "Duo formation",
-    "description": "Al2 and El B — two brothers in word, one heartbeat.",
-    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) and Bian Oscar Rodríguez Galá (El B) become the duo. Metaphor and street, philosophy and flow.",
+    "title": "The duo takes shape",
+    "description": "Al2 and El B seal a single identity: Los Aldeanos.",
+    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) and Bian Oscar Rodríguez Galá (El B) unite metaphor, street, and philosophy. The underground stops being a hobby and becomes a shared life project.",
     "artist": "los-aldeanos",
     "isDuoEra": true,
     "coverColor": "#142a4a"
@@ -21,8 +21,8 @@
   {
     "year": 2008,
     "title": "Censurados",
-    "description": "The album that defined a generation.",
-    "longDescription": "Censurados: social critique, urban poetry, awakened consciousness. A before and after in Cuban rap.",
+    "description": "A record that redefines what Cuban rap can say.",
+    "longDescription": "With Censurados, the duo takes conscious rap to another scale. Social critique, sharp poetry, and songs that would speak to entire generations — including those not yet born.",
     "highlight": true,
     "artist": "los-aldeanos",
     "isDuoEra": true,
@@ -31,8 +31,8 @@
   {
     "year": 2010,
     "title": "Poesía Esposada",
-    "description": "Love, metaphor, and freedom in every verse.",
-    "longDescription": "The duo's mature work: protest with tenderness, reflection with fire. Underground raised to literature.",
+    "description": "Lyrical maturity: love, protest, and freedom on one record.",
+    "longDescription": "The duo proves sensitivity does not weaken the message. Poesía Esposada is a bridge between the neighborhood and deep reflection — a record to listen calmly and reread urgently.",
     "artist": "los-aldeanos",
     "isDuoEra": true,
     "coverColor": "#1f2848"
@@ -40,17 +40,17 @@
   {
     "year": 2012,
     "title": "El Atropello",
-    "description": "Independent thought at full volume.",
-    "longDescription": "Messages of freedom and youth that transcend the island. The duo at their most expansive.",
+    "description": "Independent thought without asking permission.",
+    "longDescription": "At their most expansive moment, Los Aldeanos carry the message to more listeners without softening the truth. The record confirms the duo's legacy is also a legacy of intellectual courage.",
     "artist": "los-aldeanos",
     "isDuoEra": true,
     "coverColor": "#152238"
   },
   {
     "year": 2014,
-    "title": "Duo separation",
-    "description": "End of an era — the legacy remains.",
-    "longDescription": "Los Aldeanos close their joint chapter. What they built together lives on in millions of aldeana hearts.",
+    "title": "Closing of the joint era",
+    "description": "End of the duo, beginning of collective memory.",
+    "longDescription": "Los Aldeanos close their chapter together, but what they built remains: songs, phrases, critical attitude. The aldeana community does not end — it becomes archive, memory, and pride.",
     "highlight": true,
     "artist": "los-aldeanos",
     "isDuoEra": true,
@@ -58,9 +58,9 @@
   },
   {
     "year": 2015,
-    "title": "After the duo (appendix)",
-    "description": "Solo paths — a brief note at the margin of the main archive.",
-    "longDescription": "Al2 and El B continue separately. This museum honors above all 2003–2014, when they were one.",
+    "title": "Appendix: solo paths",
+    "description": "Brief note at the margin of the main archive.",
+    "longDescription": "Al2 and El B continue separately. This site documents above all the decade they were one, because that is where the heart of the shared legacy lives.",
     "artist": "all",
     "isAppendix": true,
     "coverColor": "#1a1814"

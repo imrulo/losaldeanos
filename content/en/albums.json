@@ -6,7 +6,8 @@
     "year": 2008,
     "coverColor": "#0f1a2e",
     "coverImage": "/images/covers/censurados.jpg",
-    "description": "Foundational duo work: social critique, sharp metaphors, Cuban conscious rap.",
+    "description": "The foundational manifesto of Cuban conscious rap in the duo's voice.",
+    "impact": "Censurados marked a before and after: uncompromising social critique, metaphors that cut through complacency, and a language millions of young people adopted as a mirror. Here the idea was born that rap could be protest poetry and pride at once.",
     "tracks": ["Intro", "Censurados", "Mi Generación", "Rap es Guerra", "Sin Censura"],
     "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
@@ -17,7 +18,8 @@
     "year": 2010,
     "coverColor": "#142a4a",
     "coverImage": "/images/covers/poesia-esposada.jpg",
-    "description": "Poetry and protest intertwined.",
+    "description": "Poetry and protest intertwined at the duo's maturity.",
+    "impact": "Poesía Esposada raised the underground to urban literature. The duo showed tenderness and rage can live in the same verse, and that freedom of thought is also a theme of love, neighborhood, and collective memory.",
     "tracks": ["Poesía Esposada", "La Fila", "Underground", "Libertad"],
     "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
@@ -28,7 +30,8 @@
     "year": 2012,
     "coverColor": "#1a2040",
     "coverImage": "/images/covers/el-atropello.jpg",
-    "description": "Consolidates the duo's legacy and message of free thought.",
+    "description": "The record that consolidated the duo's independent thought.",
+    "impact": "El Atropello rang loud across a generation: messages of conscience, youth, and dignity that transcended the island. It is the most powerful creative closing of the joint era — a record still heard as a call not to surrender the free word.",
     "tracks": ["El Atropello", "Conciencia", "La Aldea", "Revolución del Pensamiento"],
     "spotify": "https://open.spotify.com/artist/4Y6VI2Mfdhvb1RImggzOiY"
   },
@@ -38,7 +41,8 @@
     "artist": "al2",
     "year": 2016,
     "coverColor": "#1a1814",
-    "description": "Solo path (secondary). Archive prioritizes the 2003–2014 duo.",
+    "description": "Solo path (secondary).",
+    "impact": "Outside this archive's main focus.",
     "tracks": ["Al2 official channel"],
     "youtube": "https://www.youtube.com/channel/UCYw09b1bNwXBickiw3k5aOw",
     "isAppendix": true
@@ -50,6 +54,7 @@
     "year": 2016,
     "coverColor": "#181614",
     "description": "Individual projects (secondary).",
+    "impact": "Outside this archive's main focus.",
     "tracks": ["Public selection"],
     "youtube": "https://www.youtube.com/user/elboficial",
     "isAppendix": true

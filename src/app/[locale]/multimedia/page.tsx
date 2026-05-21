@@ -9,5 +9,5 @@ export default async function MultimediaPage({
 }) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
-  redirect(`/${locale}#multimedia`);
+  redirect(`/${locale}#legado-vivo`);
 }

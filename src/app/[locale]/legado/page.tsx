@@ -10,5 +10,5 @@ export default async function LegadoPage({
 }) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
-  redirect(`/${locale}#rap-es-guerra`);
+  redirect(`/${locale}#legado-vivo`);
 }

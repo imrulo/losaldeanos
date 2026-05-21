@@ -1,7 +1,6 @@
-import { HistoriaExperience } from "@/components/pages/historia-experience";
+import { redirect } from "next/navigation";
 import { isValidLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
-import type { Locale } from "@/types/content";
 
 export default async function HistoriaPage({
   params,
@@ -10,5 +9,5 @@ export default async function HistoriaPage({
 }) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
-  return <HistoriaExperience locale={locale as Locale} />;
+  redirect(`/${locale}#historia-duo`);
 }

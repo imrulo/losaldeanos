@@ -1,9 +1,9 @@
 [
   {
     "year": 2003,
-    "title": "Primer show en 5 Palmas",
-    "description": "Donde todo comenzó — el barrio, el micrófono, la verdad.",
-    "longDescription": "Los Aldeanos debutan en 5 Palmas. Dos voces, un barrio, una generación que encontró en el rap su espejo. Aquí nace La Aldea.",
+    "title": "Primer micrófono en 5 Palmas",
+    "description": "El barrio como escenario, la verdad como punto de partida.",
+    "longDescription": "En La Lisa, dos voces encuentran el rap como lenguaje propio. No es espectáculo: es necesidad. De este origen nace La Aldea — una comunidad que crecería alrededor del dúo y de quienes se reconocieron en sus letras.",
     "highlight": true,
     "artist": "los-aldeanos",
     "isDuoEra": true,
@@ -11,9 +11,9 @@
   },
   {
     "year": 2005,
-    "title": "Formación del dúo",
-    "description": "Al2 y El B — dos hermanos de palabra, un solo latido.",
-    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) y Bian Oscar Rodríguez Galá (El B) sellan el dúo. Metáfora y calle, filosofía y flow.",
+    "title": "El dúo toma forma",
+    "description": "Al2 y El B sellan una sola identidad: Los Aldeanos.",
+    "longDescription": "Aldo Roberto Rodríguez Baquero (Al2) y Bian Oscar Rodríguez Galá (El B) unen metáfora, calle y filosofía. El underground deja de ser pasatiempo para convertirse en proyecto de vida compartida.",
     "artist": "los-aldeanos",
     "isDuoEra": true,
     "coverColor": "#142a4a"
@@ -21,8 +21,8 @@
   {
     "year": 2008,
     "title": "Censurados",
-    "description": "El álbum que definió una generación.",
-    "longDescription": "Censurados: crítica social, poesía urbana, conciencia despierta. Un antes y un después en el rap cubano.",
+    "description": "Un álbum que redefine lo que el rap cubano puede decir.",
+    "longDescription": "Con Censurados, el dúo lleva el rap conciencia a otra escala. Crítica social, poesía afilada y canciones que hablarán a generaciones enteras — entre ellas, las que aún no habían nacido.",
     "highlight": true,
     "artist": "los-aldeanos",
     "isDuoEra": true,
@@ -31,8 +31,8 @@
   {
     "year": 2010,
     "title": "Poesía Esposada",
-    "description": "Amor, metáfora y libertad en cada verso.",
-    "longDescription": "Obra madura del dúo: denuncia con ternura, reflexión con fuego. El underground elevado a literatura.",
+    "description": "Madurez lírica: amor, denuncia y libertad en un mismo disco.",
+    "longDescription": "El dúo demuestra que la sensibilidad no debilita el mensaje. Poesía Esposada es puente entre el barrio y la reflexión profunda — un disco para escuchar con calma y releer con urgencia.",
     "artist": "los-aldeanos",
     "isDuoEra": true,
     "coverColor": "#1f2848"
@@ -40,17 +40,17 @@
   {
     "year": 2012,
     "title": "El Atropello",
-    "description": "Pensamiento independiente a volumen alto.",
-    "longDescription": "Mensajes de libertad y juventud que trascienden la isla. El dúo en su momento más expansivo.",
+    "description": "Pensamiento independiente sin pedir permiso.",
+    "longDescription": "En su momento más expansivo, Los Aldeanos llevan el mensaje a más oyentes sin suavizar la verdad. El disco confirma que el legado del dúo es también un legado de valentía intelectual.",
     "artist": "los-aldeanos",
     "isDuoEra": true,
     "coverColor": "#152238"
   },
   {
     "year": 2014,
-    "title": "Separación del dúo",
-    "description": "Fin de una era — el legado permanece.",
-    "longDescription": "Los Aldeanos cierran su capítulo conjunto. Lo que construyeron juntos sigue vivo en millones de corazones aldeanos.",
+    "title": "Cierre de la era conjunta",
+    "description": "Fin del dúo, inicio de la memoria colectiva.",
+    "longDescription": "Los Aldeanos cierran su capítulo juntos, pero lo construido permanece: canciones, frases, actitud crítica. La comunidad aldeana no termina — se transforma en archivo, recuerdo y orgullo.",
     "highlight": true,
     "artist": "los-aldeanos",
     "isDuoEra": true,
@@ -58,9 +58,9 @@
   },
   {
     "year": 2015,
-    "title": "Después del dúo (apéndice)",
-    "description": "Caminos en solitario — breve nota al margen del archivo principal.",
-    "longDescription": "Al2 y El B continúan por separado. Este museo honra sobre todo los años 2003–2014, cuando eran uno.",
+    "title": "Apéndice: caminos en solitario",
+    "description": "Nota breve al margen del archivo principal.",
+    "longDescription": "Al2 y El B continúan por separado. Este sitio documenta sobre todo la década en que fueron uno, porque ahí vive el corazón del legado compartido.",
     "artist": "all",
     "isAppendix": true,
     "coverColor": "#1a1814"

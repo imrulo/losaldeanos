@@ -8,12 +8,9 @@ import biosEs from "../../content/es/bios.json";
 import biosEn from "../../content/en/bios.json";
 import quotesEs from "../../content/es/quotes.json";
 import quotesEn from "../../content/en/quotes.json";
-import galleryEs from "../../content/es/gallery.json";
-import galleryEn from "../../content/en/gallery.json";
 import type {
   Album,
   BioSection,
-  GalleryImage,
   Locale,
   LyricEntry,
   QuoteCard,
@@ -27,7 +24,6 @@ const data = {
     lyrics: lyricsEs as LyricEntry[],
     bios: biosEs as BioSection[],
     quotes: quotesEs as QuoteCard[],
-    gallery: galleryEs as GalleryImage[],
   },
   en: {
     timeline: timelineEn as TimelineEvent[],
@@ -35,7 +31,6 @@ const data = {
     lyrics: lyricsEn as LyricEntry[],
     bios: biosEn as BioSection[],
     quotes: quotesEn as QuoteCard[],
-    gallery: galleryEn as GalleryImage[],
   },
 } as const;
 
@@ -73,10 +68,6 @@ export function getBios(locale: Locale): BioSection[] {
 
 export function getQuotes(locale: Locale): QuoteCard[] {
   return data[locale].quotes;
-}
-
-export function getGallery(locale: Locale): GalleryImage[] {
-  return data[locale].gallery;
 }
 
 export function getTimelineDuo(locale: Locale): TimelineEvent[] {

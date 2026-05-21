@@ -26,7 +26,7 @@ export const FEATURED_VIDEOS: FeaturedVideo[] = [
     titleEn: "Los Aldeanos — duo selection",
     embed:
       "https://www.youtube.com/embed?listType=search&list=Los+Aldeanos+duo+official",
-    link: OFFICIAL_LINKS.youtubeDuo,
+    link: "https://www.youtube.com/results?search_query=Los+Aldeanos+official+music",
     primary: true,
   },
   {

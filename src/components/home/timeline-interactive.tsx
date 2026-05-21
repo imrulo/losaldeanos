@@ -2,17 +2,14 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight, Clock, Music } from "lucide-react";
+import { getArchiveCopy } from "@/lib/archive-copy";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { getTimelineAlbumCover } from "@/lib/album-covers";
-import { DUO_HERO_IMAGE } from "@/lib/official-links";
-import { SpotifyEmbed } from "@/components/shared/spotify-embed";
 import { getTimelineAppendix, getTimelineDuo } from "@/lib/content-data";
 import { localePath } from "@/lib/i18n";
 import { OFFICIAL_LINKS, isDuoEraYear } from "@/lib/official-links";
@@ -43,6 +40,7 @@ export function TimelineInteractive({
   const dragStart = useRef({ x: 0, scroll: 0 });
   const sound = useMicroSound();
   const base = localePath(locale);
+  const archiveCopy = getArchiveCopy(locale);
 
   const events = view === "duo" ? duoEvents : appendixEvents;
 
@@ -109,15 +107,13 @@ export function TimelineInteractive({
             <Clock className="h-10 w-10 text-accent shrink-0" />
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-primary mb-2">
-                {locale === "es" ? "Corazón del archivo" : "Heart of the archive"}
+                {locale === "es" ? "Memoria del dúo" : "Duo memory"}
               </p>
-              <h2 className="text-4xl font-black sm:text-6xl tracking-tight text-warm">
-                {locale === "es" ? "Viaje en el tiempo" : "Journey through time"}
+              <h2 className="text-4xl font-black sm:text-5xl tracking-tight text-warm">
+                {archiveCopy.timeline.title}
               </h2>
-              <p className="mt-2 max-w-xl text-muted-foreground">
-                {locale === "es"
-                  ? "2003–2014 en grande. Arrastra, explora, escucha al dúo."
-                  : "2003–2014 front and center. Drag, explore, listen to the duo."}
+              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+                {archiveCopy.timeline.subtitle}
               </p>
             </div>
           </div>
@@ -183,6 +179,11 @@ export function TimelineInteractive({
             </span>
             <span>{events[events.length - 1]?.year}</span>
           </div>
+          {active && (
+            <p className="mt-4 text-sm sm:text-base text-warm/85 leading-relaxed border-t border-border/40 pt-4">
+              {active.description}
+            </p>
+          )}
         </div>
 
         <div className="mt-10 relative min-w-0">
@@ -243,7 +244,7 @@ export function TimelineInteractive({
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto border-primary/25 p-0">
             {active && (
-              <TimelineDetailModal event={active} locale={locale} base={base} />
+              <TimelineDetailModal event={active} locale={locale} />
             )}
           </DialogContent>
         </Dialog>
@@ -339,56 +340,11 @@ function TimelineDetailModal({
 }: {
   event: TimelineEvent;
   locale: Locale;
-  base: string;
 }) {
-  const albumCover = getTimelineAlbumCover(event.year);
-
   return (
-    <>
-      <div className="relative h-52 sm:h-60 grid grid-cols-[1fr_auto] gap-0">
-        <div className="relative min-h-full">
-          {albumCover && !event.isAppendix ? (
-            <Image
-              src={albumCover}
-              alt={`${event.title} — portada`}
-              fill
-              className="object-cover"
-              sizes="400px"
-            />
-          ) : !event.isAppendix ? (
-            <Image
-              src={DUO_HERO_IMAGE}
-              alt="Los Aldeanos — el dúo"
-              fill
-              className="object-cover object-center"
-              sizes="400px"
-            />
-          ) : (
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(145deg, ${event.coverColor ?? "#1a1814"} 0%, #0a0908 100%)`,
-              }}
-            />
-          )}
-          <div className="absolute inset-0 cuban-flag-overlay opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
-        </div>
-        {!event.isAppendix && albumCover && (
-          <div className="relative w-24 sm:w-28 border-l border-primary/20">
-            <Image
-              src={DUO_HERO_IMAGE}
-              alt="Al2 y El B"
-              fill
-              className="object-cover object-top"
-              sizes="112px"
-            />
-          </div>
-        )}
-        <span className="absolute bottom-3 left-4 text-5xl font-black text-warm/20">
-          {event.year}
-        </span>
-        <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
+    <div className="p-5 sm:p-6 space-y-5">
+      <div>
+        <Badge className="mb-3 bg-primary/20 text-primary border-primary/30">
           {event.isAppendix
             ? locale === "es"
               ? "Apéndice"
@@ -397,29 +353,25 @@ function TimelineDetailModal({
               ? "Era del dúo"
               : "Duo era"}
         </Badge>
-      </div>
-
-      <div className="p-5 sm:p-6 space-y-4">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-black text-warm text-left">
-            {event.title}
+        <DialogHeader className="text-left p-0">
+          <DialogTitle className="text-2xl font-black text-warm">
+            {event.year} — {event.title}
           </DialogTitle>
         </DialogHeader>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {event.longDescription ?? event.description}
-        </p>
-
-        {!event.isAppendix && <SpotifyEmbed compact />}
-
-        {!event.isAppendix && (
-          <Button asChild size="lg" className="w-full bg-accent text-accent-foreground font-black glow-warm">
-            <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
-              <Music className="h-5 w-5 mr-2" />
-              {locale === "es" ? "Escuchar en Spotify" : "Listen on Spotify"}
-            </a>
-          </Button>
-        )}
       </div>
-    </>
+
+      <p className="text-base sm:text-lg text-warm/90 leading-relaxed">
+        {event.longDescription ?? event.description}
+      </p>
+
+      {!event.isAppendix && (
+        <Button asChild size="lg" className="w-full bg-accent text-accent-foreground font-black glow-warm">
+          <a href={OFFICIAL_LINKS.spotifyDuo} target="_blank" rel="noopener noreferrer">
+            <Music className="h-5 w-5 mr-2" />
+            {locale === "es" ? "Escuchar en Spotify" : "Listen on Spotify"}
+          </a>
+        </Button>
+      )}
+    </div>
   );
 }

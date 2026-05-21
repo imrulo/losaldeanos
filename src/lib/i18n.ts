@@ -12,7 +12,6 @@ type Dictionary = {
     home: string;
     history: string;
     discography: string;
-    multimedia: string;
     lyrics: string;
     legacy: string;
     community: string;
@@ -56,7 +55,6 @@ const dictionaries: Record<Locale, Dictionary> = {
       home: "Inicio",
       history: "Historia",
       discography: "Discografía",
-      multimedia: "Multimedia",
       lyrics: "Letras",
       legacy: "Legado",
       community: "Comunidad",
@@ -67,9 +65,9 @@ const dictionaries: Record<Locale, Dictionary> = {
     hero: {
       title: "Los Aldeanos",
       anthem: "El rap es guerra",
-      tagline: "Archivo Digital · Legado Vivo · Para la Comunidad",
+      tagline: "Archivo Digital",
       cta: "Explorar el Legado",
-      scroll: "Viaje en el tiempo",
+      scroll: "Descubrir quiénes fueron",
     },
     footer: {
       madeWith: "Hecho con amor para la comunidad aldeana ❤️ por imrulo.eth",
@@ -101,7 +99,6 @@ const dictionaries: Record<Locale, Dictionary> = {
       home: "Home",
       history: "History",
       discography: "Discography",
-      multimedia: "Media",
       lyrics: "Lyrics",
       legacy: "Legacy",
       community: "Community",
@@ -112,9 +109,9 @@ const dictionaries: Record<Locale, Dictionary> = {
     hero: {
       title: "Los Aldeanos",
       anthem: "El rap es guerra",
-      tagline: "Digital Archive · Living Legacy · For the Community",
+      tagline: "Digital Archive",
       cta: "Explore the Legacy",
-      scroll: "Journey through time",
+      scroll: "Explore the timeline",
     },
     footer: {
       madeWith: "Made with love for the aldeana community ❤️ by imrulo.eth",
