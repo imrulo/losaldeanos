@@ -1,6 +1,6 @@
 "use client";
 
-import { getAlbumsAppendix, getAlbumsDuo } from "@/lib/content-data";
+import { getAlbumsDuo } from "@/lib/content-data";
 import { getArchiveCopy } from "@/lib/archive-copy";
 import { SpotifyPlayerBlock } from "@/components/shared/spotify-player-block";
 import type { Album, Locale } from "@/types/content";
@@ -9,7 +9,6 @@ import { ScrollReveal } from "@/components/museum/scroll-reveal";
 export function AlbumEditorialGrid({ locale }: { locale: Locale }) {
   const copy = getArchiveCopy(locale);
   const duoAlbums = getAlbumsDuo(locale);
-  const appendixAlbums = getAlbumsAppendix(locale);
 
   return (
     <div className="space-y-12">
@@ -30,36 +29,6 @@ export function AlbumEditorialGrid({ locale }: { locale: Locale }) {
         ))}
       </div>
 
-      <details className="group max-w-2xl">
-        <summary className="cursor-pointer text-sm font-medium text-muted-foreground hover:text-warm transition-colors list-none flex items-center gap-2">
-          <span className="group-open:rotate-90 transition-transform">▸</span>
-          {locale === "es"
-            ? "Apéndice breve: carreras en solitario"
-            : "Brief appendix: solo careers"}
-        </summary>
-        <div className="mt-4 space-y-3 text-sm text-muted-foreground leading-relaxed pl-4 border-l border-border/60">
-          {appendixAlbums.map((album) => (
-            <p key={album.slug}>
-              <span className="text-warm font-semibold">{album.title}</span>
-              {" — "}
-              {album.description}
-              {album.youtube && (
-                <>
-                  {" · "}
-                  <a
-                    href={album.youtube}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-bright hover:text-accent underline-offset-2 hover:underline"
-                  >
-                    {locale === "es" ? "Canal oficial" : "Official channel"}
-                  </a>
-                </>
-              )}
-            </p>
-          ))}
-        </div>
-      </details>
     </div>
   );
 }

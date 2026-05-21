@@ -147,7 +147,7 @@ const copy: Record<Locale, ArchiveCopy> = {
       ],
       quotesTitle: "Tres frases que aún acompañan",
       appendix:
-        "Después de 2014, Al2 y El B continuaron por caminos solistas. Este sitio prioriza la era del dúo porque ahí vive el corazón del legado compartido.",
+        "Después de 2014, Al2 y El B continuaron por caminos solistas. Sus canales oficiales de YouTube están en la sección Voces individuales más arriba en esta página.",
     },
   },
   en: {
@@ -255,7 +255,7 @@ const copy: Record<Locale, ArchiveCopy> = {
       ],
       quotesTitle: "Three lines that still accompany",
       appendix:
-        "After 2014, Al2 and El B continued on solo paths. This site prioritizes the duo era because that is where the heart of the shared legacy lives.",
+        "After 2014, Al2 and El B continued on solo paths. Their official YouTube channels are in the Individual voices section above on this page.",
     },
   },
 };

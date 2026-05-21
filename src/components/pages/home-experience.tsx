@@ -7,6 +7,7 @@ import { DuoHistoriaSection } from "@/components/home/duo-historia-section";
 import { AlbumEditorialGrid } from "@/components/discography/album-editorial-grid";
 import { RapEsGuerraSection } from "@/components/home/rap-es-guerra-section";
 import { LegadoVivoSection } from "@/components/home/legado-vivo-section";
+import { ArtistChannelsSection } from "@/components/home/artist-channels-section";
 import { getArchiveCopy } from "@/lib/archive-copy";
 import type { Locale } from "@/types/content";
 
@@ -35,6 +36,7 @@ export function HomeExperience({ locale }: { locale: Locale }) {
       </section>
 
       <RapEsGuerraSection locale={locale} />
+      <ArtistChannelsSection locale={locale} />
       <LegadoVivoSection locale={locale} />
     </article>
   );

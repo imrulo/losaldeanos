@@ -1,7 +1,6 @@
 "use client";
 
 import { getArchiveCopy } from "@/lib/archive-copy";
-import { SpotifyPlayerBlock } from "@/components/shared/spotify-player-block";
 import { ScrollReveal } from "@/components/museum/scroll-reveal";
 import type { Locale } from "@/types/content";
 
@@ -42,7 +41,6 @@ export function QuienesFueronSection({ locale }: { locale: Locale }) {
         </div>
 
         <ScrollReveal className="mt-10">
-          <SpotifyPlayerBlock locale={locale} compact className="mb-10" />
           <ul className="grid gap-3 sm:grid-cols-2">
             {copy.highlights.map((item) => (
               <li
