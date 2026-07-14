@@ -91,7 +91,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     disclaimer: {
       title: "Aviso importante",
-      body: "Sitio fan no oficial dedicado al legado público de Los Aldeanos. No representamos a Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) ni a Bian Oscar Rodríguez Galá (El B). Todos los enlaces dirigen a contenidos originales en plataformas oficiales de terceros.",
+      body: "Sitio fan no oficial dedicado al legado público de Los Aldeanos. No representamos a Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) ni a Bian Oscar Rodríguez Galá (El B). Todos los enlaces dirigen a contenidos originales en plataformas de terceros.",
     },
   },
   en: {
@@ -134,7 +134,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     disclaimer: {
       title: "Important notice",
-      body: "Unofficial fan site dedicated to the public legacy of Los Aldeanos. We do not represent Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) or Bian Oscar Rodríguez Galá (El B). All links point to original content on third-party official platforms.",
+      body: "Unofficial fan site dedicated to the public legacy of Los Aldeanos. We do not represent Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) or Bian Oscar Rodríguez Galá (El B). All links point to original content on third-party platforms.",
     },
   },
 };
