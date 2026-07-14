@@ -1,21 +1,18 @@
 import Link from "next/link";
 import { Heart } from "lucide-react";
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary, localePath } from "@/lib/i18n";
 import { StreamingLinks } from "@/components/layout/streaming-links";
 import type { Locale } from "@/types/content";
 
 export function Footer({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
   const year = 2026;
+  const aboutHref = localePath(locale, "/sobre");
 
   return (
     <footer className="mt-auto border-t border-primary/20 bg-gradient-to-b from-card/40 to-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        <p className="mb-6 rounded-xl border border-primary/30 bg-primary/8 p-4 text-sm text-warm/90 leading-relaxed">
-          {dict.disclaimer.body}
-        </p>
-
-        <div className="mb-8">
+        <div className="mb-10">
           <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">
             {locale === "es" ? "Escuchar al dúo" : "Listen to the duo"}
           </p>
@@ -39,7 +36,19 @@ export function Footer({ locale }: { locale: Locale }) {
             {dict.footer.credits} · {year}
           </span>
         </div>
-        <p className="mt-4 text-xs text-muted-foreground">{dict.footer.rights}</p>
+
+        <div className="mt-8 border-t border-border/50 pt-6 space-y-2">
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl">
+            {dict.footer.disclaimer}{" "}
+            <Link
+              href={aboutHref}
+              className="text-muted-foreground underline decoration-border underline-offset-2 hover:text-accent"
+            >
+              {locale === "es" ? "Aviso completo" : "Full notice"}
+            </Link>
+          </p>
+          <p className="text-xs text-muted-foreground">{dict.footer.rights}</p>
+        </div>
       </div>
     </footer>
   );
