@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Oswald, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,11 +8,19 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const oswald = Oswald({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="es" suppressHydrationWarning className={`${inter.variable} ${oswald.variable} ${instrumentSerif.variable}`}>
       <body className="min-h-screen flex flex-col antialiased font-sans">{children}</body>
     </html>
   );

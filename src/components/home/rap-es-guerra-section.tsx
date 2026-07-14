@@ -44,7 +44,7 @@ export function RapEsGuerraSection({ locale }: { locale: Locale }) {
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground mb-4">
               {copy.rapEsGuerra.excerptLabel}
             </p>
-            <p className="text-xl sm:text-2xl font-medium italic text-warm leading-relaxed whitespace-pre-line">
+            <p className="font-serif text-2xl sm:text-3xl italic text-warm leading-relaxed whitespace-pre-line">
               {excerpt}
             </p>
             <footer className="mt-5 text-sm text-muted-foreground">
