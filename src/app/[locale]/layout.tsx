@@ -3,7 +3,6 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { MuseumShell } from "@/components/providers/museum-shell";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import { isValidLocale } from "@/lib/i18n";
 import { siteMetadata, jsonLdMusicGroup } from "@/lib/metadata";
 import type { Locale } from "@/types/content";
@@ -41,7 +40,6 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <DisclaimerBanner locale={locale} />
         <Navbar locale={locale} />
         <main className="pt-16 flex-1">{children}</main>
         <Footer locale={locale} />
