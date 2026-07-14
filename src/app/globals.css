@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0908;
-  --foreground: #f5f0e6;
-  --card: #141210;
-  --card-foreground: #f5f0e6;
-  --primary: #002f6c;
-  --primary-bright: #8ec8f4;
-  --primary-foreground: #f5f0e6;
-  --secondary: #1a1814;
-  --secondary-foreground: #e8e2d6;
-  --muted: #1f1c18;
-  --muted-foreground: #c9bfb0;
-  --accent: #e6b800;
-  --accent-foreground: #0a0908;
-  --warm: #f5f0e6;
-  --cuban-red: #c8102e;
-  --calm: #2a9d8f;
-  --border: #2a2620;
-  --ring: #002f6c;
+  /* Dark Underground Cubano — blood red + rust orange, old gold for legado */
+  --background: #09090b;
+  --foreground: #f4f1ea;
+  --card: #131316;
+  --card-foreground: #f4f1ea;
+  --primary: #8b1e1e;
+  --primary-bright: #c2410c;
+  --primary-foreground: #f4f1ea;
+  --secondary: #1a1a1d;
+  --secondary-foreground: #e7e4dd;
+  --muted: #1e1e22;
+  --muted-foreground: #a1a1aa;
+  --accent: #c2410c;
+  --accent-foreground: #f4f1ea;
+  --warm: #f4f1ea;
+  --cuban-red: #8b1e1e;
+  --gold: #b8860b;
+  --calm: #b8860b;
+  --border: #27272a;
+  --ring: #c2410c;
   --radius: 0.625rem;
 }
 
@@ -38,10 +40,12 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-warm: var(--warm);
   --color-cuban-red: var(--cuban-red);
+  --color-gold: var(--gold);
   --color-calm: var(--calm);
   --color-border: var(--border);
   --color-ring: var(--ring);
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-serif);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -56,7 +60,12 @@ html {
 }
 
 .font-display {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-display), "Oswald", "Arial Narrow", system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.font-serif {
+  font-family: var(--font-serif), "Instrument Serif", Georgia, "Times New Roman", serif;
 }
 
 body {
@@ -66,7 +75,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   background-image:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(0, 47, 108, 0.12), transparent),
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(139, 30, 30, 0.16), transparent),
+    radial-gradient(ellipse 90% 60% at 85% 10%, rgba(194, 65, 12, 0.08), transparent),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
@@ -103,15 +113,26 @@ body {
 }
 
 .glow-blue {
-  box-shadow: 0 0 40px color-mix(in srgb, var(--primary) 28%, transparent);
+  box-shadow: 0 0 40px color-mix(in srgb, var(--primary) 32%, transparent);
 }
 
 .glow-red {
-  box-shadow: 0 0 24px color-mix(in srgb, var(--cuban-red) 20%, transparent);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--cuban-red) 32%, transparent);
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px color-mix(in srgb, var(--gold) 26%, transparent);
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #e6b800, #f5e6a8, #e6b800);
+  background: linear-gradient(135deg, #b8860b, #e8c766, #b8860b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-blood {
+  background: linear-gradient(135deg, #c2410c, #f0885a, #8b1e1e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -120,35 +141,34 @@ body {
 .anthem-glow {
   color: var(--foreground);
   text-shadow:
-    0 0 32px color-mix(in srgb, var(--accent) 45%, transparent),
-    0 0 64px color-mix(in srgb, var(--primary) 25%, transparent);
+    0 0 28px color-mix(in srgb, var(--accent) 55%, transparent),
+    0 0 64px color-mix(in srgb, var(--cuban-red) 40%, transparent);
 }
 
 .cuban-flag-overlay {
   background: linear-gradient(
     180deg,
-    rgba(0, 47, 108, 0.35) 0%,
-    rgba(0, 47, 108, 0.35) 33%,
-    rgba(245, 240, 230, 0.08) 33%,
-    rgba(245, 240, 230, 0.08) 66%,
-    rgba(200, 16, 46, 0.15) 66%,
-    rgba(200, 16, 46, 0.15) 100%
+    rgba(139, 30, 30, 0.35) 0%,
+    rgba(139, 30, 30, 0.28) 40%,
+    rgba(244, 241, 234, 0.05) 60%,
+    rgba(194, 65, 12, 0.22) 100%
   );
   mix-blend-mode: soft-light;
   pointer-events: none;
 }
 
 .light {
-  --background: #f5f0e6;
-  --foreground: #0a0908;
-  --warm: #0a0908;
+  --background: #f4f1ea;
+  --foreground: #1a1210;
+  --warm: #1a1210;
   --card: #ffffff;
-  --card-foreground: #0a0908;
-  --secondary: #ebe6dc;
-  --secondary-foreground: #1a1814;
-  --muted: #e5dfd3;
-  --muted-foreground: #5c5548;
-  --border: #d4cdc0;
+  --card-foreground: #1a1210;
+  --secondary: #ece7de;
+  --secondary-foreground: #2a1e1a;
+  --muted: #e4ddd2;
+  --muted-foreground: #6b6258;
+  --accent-foreground: #ffffff;
+  --border: #d6cec1;
 }
 
 .glitch-text {
@@ -247,11 +267,11 @@ html.lenis body {
 .particle-field {
   background-image: radial-gradient(
       1px 1px at 20% 30%,
-      rgba(0, 47, 108, 0.4),
+      rgba(139, 30, 30, 0.5),
       transparent
     ),
-    radial-gradient(1px 1px at 60% 70%, rgba(230, 184, 0, 0.3), transparent),
-    radial-gradient(1px 1px at 80% 20%, rgba(245, 240, 230, 0.15), transparent);
+    radial-gradient(1px 1px at 60% 70%, rgba(194, 65, 12, 0.4), transparent),
+    radial-gradient(1px 1px at 80% 20%, rgba(244, 241, 234, 0.15), transparent);
   background-size: 200% 200%;
   animation: drift-particles 24s ease-in-out infinite alternate;
 }

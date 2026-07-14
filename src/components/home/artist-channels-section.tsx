@@ -11,7 +11,7 @@ const ARTISTS = [
   {
     key: "al2" as const,
     youtube: OFFICIAL_LINKS.youtubeAl2,
-    gradient: "from-[#002F6C]/40 via-card/60 to-background",
+    gradient: "from-primary/30 via-card/60 to-background",
     borderHover: "hover:border-primary-bright/50",
     badgeClass: "border-primary-bright/40 text-primary-bright bg-primary/15",
   },
