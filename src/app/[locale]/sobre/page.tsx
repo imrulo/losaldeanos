@@ -24,14 +24,7 @@ export default async function SobrePage({
         }
       />
 
-      <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-6">
-        <h2 className="text-lg font-bold text-accent">{dict.disclaimer.title}</h2>
-        <p className="mt-4 text-muted-foreground leading-relaxed">
-          {dict.disclaimer.body}
-        </p>
-      </div>
-
-      <div className="mt-12 space-y-6 text-muted-foreground leading-relaxed">
+      <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>
           {l === "es"
             ? "Este sitio es un archivo digital creado con respeto y cariño para la comunidad aldeana. Honra el legado público de Aldo Roberto Rodríguez Baquero (Al2 El Aldeano) y Bian Oscar Rodríguez Galá (El B) cuando formaron Los Aldeanos."
@@ -54,6 +47,15 @@ export default async function SobrePage({
           >
             GitHub
           </a>
+        </p>
+      </div>
+
+      <div className="mt-16 rounded-xl border border-border/60 bg-card/30 p-6">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+          {dict.disclaimer.title}
+        </h2>
+        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+          {dict.disclaimer.body}
         </p>
       </div>
     </div>
